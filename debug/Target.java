@@ -1,0 +1,5032 @@
+/* ---------------------------------------------------------------------
+%   Copyright (C) 2007 Association for the COINS Compiler Infrastructure
+%       (Read COPYING for detailed information.)
+--------------------------------------------------------------------- */
+package coins.ssa;
+import coins.backend.Data;
+import coins.backend.Function;
+import coins.backend.LocalTransformer;
+import coins.backend.util.ImList;
+
+/**
+ *  For debug. select applying some technique.
+ **/
+public class Target implements LocalTransformer {
+	public static final int THR = SsaEnvironment.OptThr;
+	/** The threshold of debug print **/
+	public static final int THR2 = SsaEnvironment.AllThr;
+	private SsaEnvironment env;
+	private SsaSymTab sstab;
+	private Function f;
+	
+	/**
+	 * Constructor.
+	 * 
+	 * @param env
+	 *            The environment of the SSA module
+	 * @param sstab
+	 *            The current symbol table on SSA form
+	 **/
+	public Target(SsaEnvironment env, SsaSymTab sstab) {
+		this.env = env;
+		this.sstab = sstab;
+	}
+	
+	public Target(SsaEnvironment e,Function func){
+    	f = func;
+    	env=e;
+    }
+	
+	private boolean equake(Function f){
+		if(
+				f.symbol.name.intern()=="main".intern()
+//				||
+//				f.symbol.name.intern()=="shape_ders".intern()
+//				||
+//				f.symbol.name.intern()=="get_Enu".intern()
+//				||
+//				f.symbol.name.intern()=="inv_J".intern()
+//				||
+//				f.symbol.name.intern()=="element_matrices".intern()
+//				||
+//				f.symbol.name.intern()=="area_triangle".intern()
+//				||
+//				f.symbol.name.intern()=="abe_matrix".intern()
+//				||
+//				f.symbol.name.intern()=="phi0".intern()
+//				||
+//				f.symbol.name.intern()=="phi1".intern()
+//				||
+//				f.symbol.name.intern()=="phi2".intern()
+//				||
+//				f.symbol.name.intern()=="slip".intern()
+//				||
+//				f.symbol.name.intern()=="distance".intern()
+//				||
+//				f.symbol.name.intern()=="centroid".intern()
+//				||
+//				f.symbol.name.intern()=="point2fault".intern()
+//				||
+//				f.symbol.name.intern()=="mv12x12".intern()
+//				||
+//				f.symbol.name.intern()=="vv12x12".intern()
+//				||
+//				f.symbol.name.intern()=="arch_bail".intern()
+//				||
+//				f.symbol.name.intern()=="arch_info".intern()
+//				||
+//				f.symbol.name.intern()=="arch_parsecommandline".intern()
+//				||
+//				f.symbol.name.intern()=="arch_readnodevector".intern()
+//				||
+//				f.symbol.name.intern()=="arch_readelemvector".intern()
+//				||
+//				f.symbol.name.intern()=="arch_readdouble".intern()
+//				||
+//				f.symbol.name.intern()=="readpackfile".intern()
+//				||
+//				f.symbol.name.intern()=="arch_init".intern()
+//				||
+//				f.symbol.name.intern()=="smvp".intern()
+//				||
+//				f.symbol.name.intern()=="smvp_opt".intern()
+//				||
+//				f.symbol.name.intern()=="mem_init".intern()
+				){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	private boolean art(Function f){
+		if(
+//				f.symbol.name.intern()=="g".intern()
+//				||
+//				f.symbol.name.intern()=="find_match".intern()
+//				||
+//				f.symbol.name.intern()=="simtest".intern()
+//				||
+//				f.symbol.name.intern()=="simtest2".intern()
+//				||
+//				f.symbol.name.intern()=="weightadj".intern()
+//				||
+//				f.symbol.name.intern()=="init_globs".intern()
+//				||
+//				f.symbol.name.intern()=="init_net".intern()
+//				||
+//				f.symbol.name.intern()=="analog_conv".intern()
+//				||
+//				f.symbol.name.intern()=="get_pat".intern()
+//				||
+//				f.symbol.name.intern()=="show_pat".intern()
+//				||
+//				f.symbol.name.intern()=="reset_nodes".intern()
+//				||
+//				f.symbol.name.intern()=="reset_nodes2".intern()	
+//				||
+//				f.symbol.name.intern()=="print_weights".intern()
+//				||
+//				f.symbol.name.intern()=="print_f12".intern()
+//				||
+//				f.symbol.name.intern()=="train_match".intern()
+//				||
+				f.symbol.name.intern()=="match".intern()
+//				||
+//				f.symbol.name.intern()=="loadimage".intern()
+//				||
+//				f.symbol.name.intern()=="load_weights".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_td_bu".intern()
+//				||
+//				f.symbol.name.intern()=="init_td".intern()
+//				||
+//				f.symbol.name.intern()=="init_bu".intern()
+//				||
+//				f.symbol.name.intern()=="load_train".intern()
+//				||
+//				f.symbol.name.intern()=="sim_other_objects".intern()
+//				||
+//				f.symbol.name.intern()=="setup_base_pattern".intern()
+//				||
+//				f.symbol.name.intern()=="scan_recognize".intern()
+//				||
+//				f.symbol.name.intern()=="main".intern()
+				){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	private boolean mcf(Function f){
+		if(
+				// mcf.c
+				// mcfutil.c
+//				f.symbol.name.intern()=="global_opt".intern()
+//				||
+//				f.symbol.name.intern()=="main".intern()
+//				||
+//				f.symbol.name.intern()=="refresh_neighbour_lists".intern()
+//				||
+//				f.symbol.name.intern()=="refresh_potential".intern()
+//				||
+//				f.symbol.name.intern()=="flow_cost".intern()
+//				||
+//				f.symbol.name.intern()=="flow_org_cost".intern()
+//				||
+//				f.symbol.name.intern()=="primal_feasible".intern()
+//				||
+//				f.symbol.name.intern()=="dual_feasible".intern()
+//				||
+//				f.symbol.name.intern()=="getfree".intern()
+				
+				// implicit.c
+//				||
+//				f.symbol.name.intern()=="resize_prob".intern()
+//				||
+//				f.symbol.name.intern()=="compute_red_cost".intern()
+//				||
+//				f.symbol.name.intern()=="insert_new_arc".intern()
+//				||
+//				f.symbol.name.intern()=="replace_weaker_arc".intern()
+//				||
+				f.symbol.name.intern()=="price_out_impl".intern()
+				
+				// readmin.c
+				// pstart.c
+				// output.c
+				// treeup.c
+				// pbla.c
+				// pflowup.c
+				// psimplex.c
+//				||
+//				f.symbol.name.intern()=="read_min".intern()
+//				||
+//				f.symbol.name.intern()=="primal_start_artificial".intern()
+//				||
+//				f.symbol.name.intern()=="write_circulations".intern()
+//				||
+//				f.symbol.name.intern()=="update_tree".intern()
+//				||
+//				f.symbol.name.intern()=="primal_iminus".intern()
+//				||
+//				f.symbol.name.intern()=="primal_update_flow".intern()
+//				||
+//				f.symbol.name.intern()=="primal_net_simplex".intern()
+				
+				// pbeampp.c
+//				||
+//				f.symbol.name.intern()=="bea_compute_red_cost".intern()
+//				||
+//				f.symbol.name.intern()=="bea_is_dual_infeasible".intern()
+//				||
+//				f.symbol.name.intern()=="sort_basket".intern()
+//				||
+//				f.symbol.name.intern()=="primal_bea_mpp".intern()
+				){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	private boolean crafty(Function f){
+		if(
+				// searchr.c
+				// search.c
+				// store.c
+				// swap.c
+				// setboard.c
+//				f.symbol.name.intern()=="SearchRoot".intern()
+//				||
+//				f.symbol.name.intern()=="SearchOutput".intern()
+//				||
+//				f.symbol.name.intern()=="SearchTrace".intern()
+//				||
+//				f.symbol.name.intern()=="Search".intern()
+//				||
+//				f.symbol.name.intern()=="StoreBest".intern()
+//				||
+//				f.symbol.name.intern()=="StorePV".intern()
+//				||
+//				f.symbol.name.intern()=="StoreRefutation".intern()
+//				||
+//				f.symbol.name.intern()=="Swap".intern()
+//				||
+//				f.symbol.name.intern()=="SwapXray".intern()
+//				||
+//				f.symbol.name.intern()=="SetBoard".intern()
+				
+				// repeat.c
+				// root.c
+//				||
+//				f.symbol.name.intern()=="RepetitionCheck".intern()
+//				||
+//				f.symbol.name.intern()=="RepetitionDraw".intern()
+//				||
+//				f.symbol.name.intern()=="RootMoveList".intern()
+				
+				// next.c
+				// nextr.c
+				// nexte.c
+//				||
+//				f.symbol.name.intern()=="NextMove".intern()
+//				||
+//				f.symbol.name.intern()=="NextRootMove".intern()
+//				||
+//				f.symbol.name.intern()=="NextEvasion".intern()
+				
+				// history.c
+//				||
+//				f.symbol.name.intern()=="HistoryBest".intern()
+//				||
+//				f.symbol.name.intern()=="HistoryRefutation".intern()
+				
+				
+				// quiesce.c
+//				||
+//				f.symbol.name.intern()=="Quiesce".intern()
+				
+				// evaluate.c
+//				||
+//				f.symbol.name.intern()=="Evaluate".intern()
+//				||
+//				f.symbol.name.intern()=="EvaluateDevelopment".intern()
+//				||
+//				f.symbol.name.intern()=="EvaluateDraws".intern()
+//				||
+//				f.symbol.name.intern()=="EvaluateMate".intern()
+//				||
+//				f.symbol.name.intern()=="EvaluatePassedPawns".intern()
+//				||
+//				f.symbol.name.intern()=="EvaluatePassedPawnRaces".intern()
+//				||
+//				f.symbol.name.intern()=="EvaluatePawns".intern()
+				
+				// movgen.c
+				// make.c
+				// main.c
+//				||
+//				f.symbol.name.intern()=="GenerateCaptures".intern()
+//				||
+//				f.symbol.name.intern()=="GenerateCheckEvasions".intern()
+//				||
+//				f.symbol.name.intern()=="GenerateNonCaptures".intern()
+//				||
+				f.symbol.name.intern()=="MakeMove".intern()
+//				||
+//				f.symbol.name.intern()=="MakeMoveRoot".intern()
+//				||
+//				f.symbol.name.intern()=="main".intern()
+				
+				// lookup.c
+//				||
+//				f.symbol.name.intern()=="LookUp".intern()
+				
+				// attacks.c
+//				||
+//				f.symbol.name.intern()=="AttacksFrom".intern()
+//				||
+//				f.symbol.name.intern()=="AttacksTo".intern()
+//				||
+//				f.symbol.name.intern()=="Attacked".intern()
+				
+				// boolean.c
+//				||
+//				f.symbol.name.intern()=="Mask".intern()
+//				||
+//				f.symbol.name.intern()=="PopCnt".intern()
+//				||
+//				f.symbol.name.intern()=="FirstOne".intern()
+//				||
+//				f.symbol.name.intern()=="LastOne".intern()
+				
+				// draw.c
+				// drawn.c
+//				||
+//				f.symbol.name.intern()=="DrawScore".intern()
+//				||
+//				f.symbol.name.intern()=="Drawn".intern()
+			
+				// unmake.c
+				// utility.c
+//				||
+//				f.symbol.name.intern()=="UnMakeMove".intern()
+//				||
+//				f.symbol.name.intern()=="CheckInput".intern()
+//				||
+//				f.symbol.name.intern()=="Delay".intern()
+//				||
+//				f.symbol.name.intern()=="ClearHashTables".intern()
+//				||
+//				f.symbol.name.intern()=="DisplayBitBoard".intern()
+//				||
+//				f.symbol.name.intern()=="DisplayChessBoard".intern()
+//				||
+//				f.symbol.name.intern()=="DisplayEvaluation".intern()
+//				||
+//				f.symbol.name.intern()=="DisplayEvaluationWhisper".intern()
+//				||
+//				f.symbol.name.intern()=="DisplayPieceBoards".intern()
+//				||
+//				f.symbol.name.intern()=="DisplayHHMM".intern()
+//				||
+//				f.symbol.name.intern()=="DisplayTime".intern()
+//				||
+//				f.symbol.name.intern()=="DisplayTimeWhisper".intern()
+//				||
+//				f.symbol.name.intern()=="Display64bitWord".intern()
+//				||
+//				f.symbol.name.intern()=="Display2BitBoards".intern()
+//				||
+//				f.symbol.name.intern()=="DisplayChessMove".intern()
+//				||
+//				f.symbol.name.intern()=="GetTime".intern()
+//				||
+//				f.symbol.name.intern()=="HasOpposition".intern()
+//				||
+//				f.symbol.name.intern()=="InterposeSquares".intern()
+//				||
+//				f.symbol.name.intern()=="KingPawnSquare".intern()
+//				||
+//				f.symbol.name.intern()=="NewGame".intern()
+//				||
+//				f.symbol.name.intern()=="Normal".intern()
+//				||
+//				f.symbol.name.intern()=="ParseTime".intern()
+//				||
+//				f.symbol.name.intern()=="PinnedOnKing".intern()
+//				||
+//				f.symbol.name.intern()=="Random32".intern()
+//				||
+//				f.symbol.name.intern()=="Random64".intern()
+//				||
+//				f.symbol.name.intern()=="Read".intern()
+//				||
+//				f.symbol.name.intern()=="ReadClear".intern()
+//				||
+//				f.symbol.name.intern()=="ReadParse".intern()
+//				||
+//				f.symbol.name.intern()=="SpecReadRaw".intern()
+//				||
+//				f.symbol.name.intern()=="ReadChessMove".intern()
+//				||
+//				f.symbol.name.intern()=="ReadNextMove".intern()
+//				||
+//				f.symbol.name.intern()=="Reverse".intern()
+//				||
+//				f.symbol.name.intern()=="Whisper".intern()
+				
+				// valid.c
+				// validate.c
+//				||
+//				f.symbol.name.intern()=="ValidMove".intern()
+//				||
+//				f.symbol.name.intern()=="ValidatePosition".intern()
+//				||
+//				f.symbol.name.intern()=="ValidateComputeBishopAttacks".intern()
+//				||
+//				f.symbol.name.intern()=="ValidateComputeRookAttacks".intern()
+				
+				// edit.c
+				// enprise.c
+//				||
+//				f.symbol.name.intern()=="Edit".intern()
+//				||
+//				f.symbol.name.intern()=="EnPrise".intern()
+				
+				// init.c
+				// input.c
+				// interupt.c
+				// iterate.c
+//				||
+//				f.symbol.name.intern()=="Initialize".intern()
+//				||
+//				f.symbol.name.intern()=="InitializeAttackBoards".intern()
+//				||
+//				f.symbol.name.intern()=="InitializeChessBoard".intern()
+//				||
+//				f.symbol.name.intern()=="SetChessBitBoards".intern()
+//				||
+//				f.symbol.name.intern()=="InitializeFindAttacks".intern()
+//				||
+//				f.symbol.name.intern()=="InitializeHashTables".intern()
+//				||
+//				f.symbol.name.intern()=="InitializeMasks".intern()
+//				||
+//				f.symbol.name.intern()=="InitializePawnMasks".intern()
+//				||
+//				f.symbol.name.intern()=="InitializePieceMasks".intern()
+//				||
+//				f.symbol.name.intern()=="InitializeRandomHash".intern()
+//				||
+//				f.symbol.name.intern()=="InitializeZeroMasks".intern()
+//				||
+//				f.symbol.name.intern()=="InputMove".intern()
+//				||
+//				f.symbol.name.intern()=="InputMoveICS".intern()
+//				||
+//				f.symbol.name.intern()=="Interrupt".intern()
+//				||
+//				f.symbol.name.intern()=="SignalInterrupt".intern()
+//				||
+//				f.symbol.name.intern()=="Iterate".intern()
+				
+				// option.c
+				// output.c
+//				||
+//				f.symbol.name.intern()=="Option".intern()
+//				||
+//				f.symbol.name.intern()=="OptionMatch".intern()
+//				||
+//				f.symbol.name.intern()=="OptionPerft".intern()
+//				||
+//				f.symbol.name.intern()=="OutputMove".intern()
+//				||
+//				f.symbol.name.intern()=="OutputMoveICS".intern()
+//				||
+//				f.symbol.name.intern()=="OutputGood".intern()
+				
+				// phase.c
+				// ponder.c
+				// preeval.c
+				
+//				||
+//				f.symbol.name.intern()=="Phase".intern()
+//				||
+//				f.symbol.name.intern()=="Ponder".intern()
+//				||
+//				f.symbol.name.intern()=="PreEvaluate".intern()
+				
+				// time.c
+//				||
+//				f.symbol.name.intern()=="TimeAdjust".intern()
+//				||
+//				f.symbol.name.intern()=="TimeCheck".intern()
+//				||
+//				f.symbol.name.intern()=="TimeSet".intern()
+				){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	private boolean bzip2(Function f){
+		if(
+				// bzip2.c
+//				f.symbol.name.intern()=="initialiseCRC".intern()
+//				||
+//				f.symbol.name.intern()=="getFinalCRC".intern()
+//				||
+//				f.symbol.name.intern()=="getGlobalCRC".intern()
+//				||
+//				f.symbol.name.intern()=="setGlobalCRC".intern()
+//				||
+//				f.symbol.name.intern()=="bsSetStream".intern()
+//				||
+//				f.symbol.name.intern()=="bsFinishedWithStream".intern()
+//				||
+//				f.symbol.name.intern()=="bsR".intern()
+//				||
+//				f.symbol.name.intern()=="bsW".intern()
+//				||
+//				f.symbol.name.intern()=="bsGetUChar".intern()
+//				||
+//				f.symbol.name.intern()=="bsPutUChar".intern()
+//				||
+//				f.symbol.name.intern()=="bsGetUInt32".intern()
+//				||
+//				f.symbol.name.intern()=="bsGetIntVS".intern()	
+//				||
+//				f.symbol.name.intern()=="bsGetInt32".intern()
+//				||
+//				f.symbol.name.intern()=="bsPutUInt32".intern()
+//				||
+//				f.symbol.name.intern()=="bsPutInt32".intern()
+//				||
+//				f.symbol.name.intern()=="bsPutIntVS".intern()
+//				||
+				f.symbol.name.intern()=="hbMakeCodeLengths".intern()
+//				||
+//				f.symbol.name.intern()=="hbAssignCodes".intern()
+//				||
+//				f.symbol.name.intern()=="hbCreateDecodeTables".intern()
+//				||
+//				f.symbol.name.intern()=="allocateCompressStructures".intern()
+//				||
+//				f.symbol.name.intern()=="setDecompressStructureSizes".intern()
+//				||
+//				f.symbol.name.intern()=="makeMaps".intern()
+//				||
+//				f.symbol.name.intern()=="generateMTFValues".intern()											
+//				||
+//				f.symbol.name.intern()=="sendMTFValues".intern()
+//				||
+//				f.symbol.name.intern()=="moveToFrontCodeAndSend".intern()
+//				||
+//				f.symbol.name.intern()=="recvDecodingTables".intern()
+//				||
+//				f.symbol.name.intern()=="getAndMoveToFrontDecode".intern()
+//				||
+//				f.symbol.name.intern()=="fullGtU".intern()
+//				||
+//				f.symbol.name.intern()=="simpleSort".intern()
+//				||
+//				f.symbol.name.intern()=="vswap".intern()
+//				||
+//				f.symbol.name.intern()=="med3".intern()
+//				||
+//				f.symbol.name.intern()=="qSort3".intern()
+//				||
+//				f.symbol.name.intern()=="sortIt".intern()
+//				||
+//				f.symbol.name.intern()=="randomiseBlock".intern()
+//				||
+//				f.symbol.name.intern()=="doReversibleTransformation".intern()
+//				||
+//				f.symbol.name.intern()=="indexIntoF".intern()
+//				||
+//				f.symbol.name.intern()=="undoReversibleTransformation_small".intern()
+//				||
+//				f.symbol.name.intern()=="undoReversibleTransformation_fast".intern()
+//				||
+//				f.symbol.name.intern()=="getRLEpair".intern()
+//				||
+//				f.symbol.name.intern()=="loadAndRLEsource".intern()
+//				||
+//				f.symbol.name.intern()=="compressStream".intern()
+//				||
+//				f.symbol.name.intern()=="uncompressStream".intern()
+//				||
+//				f.symbol.name.intern()=="testStream".intern()
+//				||
+//				f.symbol.name.intern()=="cadvise".intern()
+//				||
+//				f.symbol.name.intern()=="showFileNames".intern()
+//				||
+//				f.symbol.name.intern()=="cleanUpAndFail".intern()
+//				||
+//				f.symbol.name.intern()=="panic".intern()
+//				||
+//				f.symbol.name.intern()=="badBGLengths".intern()
+//				||
+//				f.symbol.name.intern()=="crcError".intern()
+//				||
+//				f.symbol.name.intern()=="compressedStreamEOF".intern()
+//				||
+//				f.symbol.name.intern()=="ioError".intern()
+//				||
+//				f.symbol.name.intern()=="blockOverrun".intern()
+//				||
+//				f.symbol.name.intern()=="badBlockHeader".intern()
+//				||
+//				f.symbol.name.intern()=="bitStreamEOF".intern()
+//				||
+//				f.symbol.name.intern()=="mySignalCatcher".intern()
+//				||
+//				f.symbol.name.intern()=="mySIGSEGVorSIGBUScatcher".intern()
+//				||
+//				f.symbol.name.intern()=="uncompressOutOfMemory".intern()
+//				||
+//				f.symbol.name.intern()=="compressOutOfMemory".intern()
+				
+				// spec.c
+//				||
+//				f.symbol.name.intern()=="ran".intern()
+//				||
+//				f.symbol.name.intern()=="spec_init".intern()
+//				||
+//				f.symbol.name.intern()=="spec_random_load".intern()
+//				||
+//				f.symbol.name.intern()=="spec_load".intern()
+//				||
+//				f.symbol.name.intern()=="spec_read".intern()
+//				||
+//				f.symbol.name.intern()=="spec_getc".intern()
+//				||
+//				f.symbol.name.intern()=="spec_ungetc".intern()
+//				||
+//				f.symbol.name.intern()=="spec_rewind".intern()
+//				||
+//				f.symbol.name.intern()=="spec_reset".intern()
+//				||
+//				f.symbol.name.intern()=="spec_write".intern()
+//				||
+//				f.symbol.name.intern()=="spec_putc".intern()
+//				||
+//				f.symbol.name.intern()=="main".intern()
+//				||
+//				f.symbol.name.intern()=="spec_initbufs".intern()
+//				||
+//				f.symbol.name.intern()=="spec_compress".intern()
+//				||
+//				f.symbol.name.intern()=="spec_uncompress".intern()
+//				||
+//				f.symbol.name.intern()=="debug_time".intern()
+				){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	private boolean gzip(Function f){
+		if(
+				// bits.c
+//				f.symbol.name.intern()=="bi_init".intern()
+//				||
+//				f.symbol.name.intern()=="send_bits".intern()
+//				||
+//				f.symbol.name.intern()=="bi_reverse".intern()
+//				||
+//				f.symbol.name.intern()=="bi_windup".intern()
+//				||
+//				f.symbol.name.intern()=="copy_block".intern()
+				
+				// deflate.c
+//				||
+//				f.symbol.name.intern()=="lm_init".intern()
+//				||
+//				f.symbol.name.intern()=="longest_match".intern()
+//				||
+//				f.symbol.name.intern()=="fill_window".intern()
+//				||
+//				f.symbol.name.intern()=="deflate_fast".intern()
+//				||
+//				f.symbol.name.intern()=="deflate".intern()
+				
+				// gzip.c
+//				||
+//				f.symbol.name.intern()=="usage".intern()											
+//				||
+//				f.symbol.name.intern()=="help".intern()	
+//				||
+//				f.symbol.name.intern()=="license".intern()
+//				||
+//				f.symbol.name.intern()=="version".intern()
+//				||
+//				f.symbol.name.intern()=="treat_stdin".intern()
+//				||
+//				f.symbol.name.intern()=="treat_file".intern()
+//				||
+//				f.symbol.name.intern()=="create_outfile".intern()
+//				||
+//				f.symbol.name.intern()=="do_stat".intern()
+//				||
+//				f.symbol.name.intern()=="get_suffix".intern()
+//				||
+//				f.symbol.name.intern()=="get_istat".intern()
+//				||
+//				f.symbol.name.intern()=="make_ofname".intern()
+//				||
+//				f.symbol.name.intern()=="get_method".intern()
+//				||
+//				f.symbol.name.intern()=="do_list".intern()											
+//				||
+//				f.symbol.name.intern()=="same_file".intern()
+//				||
+//				f.symbol.name.intern()=="name_too_long".intern()
+//				||
+//				f.symbol.name.intern()=="shorten_name".intern()
+//				||
+//				f.symbol.name.intern()=="check_ofname".intern()
+//				||
+//				f.symbol.name.intern()=="copy_stat".intern()
+//				||
+//				f.symbol.name.intern()=="do_exit".intern()
+//				||
+//				f.symbol.name.intern()=="abort_gzip".intern()
+				
+				// getopt.c not contain any function.
+				
+				//inflate.c
+//				||
+//				f.symbol.name.intern()=="huft_build".intern()
+//				||
+//				f.symbol.name.intern()=="huft_free".intern()
+//				||
+//				f.symbol.name.intern()=="inflate_codes".intern()
+//				||
+//				f.symbol.name.intern()=="inflate_stored".intern()
+//				||
+//				f.symbol.name.intern()=="inflate_fixed".intern()
+//				||
+//				f.symbol.name.intern()=="inflate_dynamic".intern()
+//				||
+//				f.symbol.name.intern()=="inflate_block".intern()
+//				||
+//				f.symbol.name.intern()=="inflate".intern()
+				
+				// lzw.c 
+//				||
+//				f.symbol.name.intern()=="lzw".intern()
+				
+				// spec.c
+//				||
+//				f.symbol.name.intern()=="ran".intern()
+//				||
+//				f.symbol.name.intern()=="spec_init".intern()
+//				||
+//				f.symbol.name.intern()=="spec_random_load".intern()
+//				||
+//				f.symbol.name.intern()=="spec_load".intern()
+//				||
+//				f.symbol.name.intern()=="spec_read".intern()
+//				||
+//				f.symbol.name.intern()=="spec_getc".intern()
+//				||
+//				f.symbol.name.intern()=="spec_ungetc".intern()
+//				||
+//				f.symbol.name.intern()=="spec_rewind".intern()
+//				||
+//				f.symbol.name.intern()=="spec_reset".intern()
+//				||
+//				f.symbol.name.intern()=="spec_write".intern()
+//				||
+//				f.symbol.name.intern()=="spec_putc".intern()
+//				||
+//				f.symbol.name.intern()=="main".intern()
+//				||
+//				f.symbol.name.intern()=="spec_initbufs".intern()
+//				||
+//				f.symbol.name.intern()=="spec_compress".intern()
+//				||
+//				f.symbol.name.intern()=="spec_uncompress".intern()
+//				||
+//				f.symbol.name.intern()=="debug_time".intern()
+				
+				// trees.c
+//				||
+//				f.symbol.name.intern()=="ct_init".intern()
+//				||
+//				f.symbol.name.intern()=="init_block".intern()
+//				||
+				f.symbol.name.intern()=="pqdownheap".intern()
+//				||
+//				f.symbol.name.intern()=="gen_bitlen".intern()
+//				||
+//				f.symbol.name.intern()=="gen_codes".intern()
+//				||
+//				f.symbol.name.intern()=="build_tree".intern()
+//				||
+//				f.symbol.name.intern()=="scan_tree".intern()
+//				||
+//				f.symbol.name.intern()=="send_tree".intern()
+//				||
+//				f.symbol.name.intern()=="build_bl_tree".intern()
+//				||
+//				f.symbol.name.intern()=="send_all_trees".intern()
+//				||
+//				f.symbol.name.intern()=="flush_block".intern()
+//				||
+//				f.symbol.name.intern()=="ct_tally".intern()
+//				||
+//				f.symbol.name.intern()=="compress_block".intern()
+//				||
+//				f.symbol.name.intern()=="set_file_type".intern()
+				
+				// unlzh.c
+				// unlzw.c
+				// unpack.c
+				// unzip.c
+				// util.c
+//				||
+//				f.symbol.name.intern()=="fillbuf".intern()
+//				||
+//				f.symbol.name.intern()=="getbits".intern()
+//				||
+//				f.symbol.name.intern()=="init_getbits".intern()
+//				||
+//				f.symbol.name.intern()=="make_table".intern()
+//				||
+//				f.symbol.name.intern()=="read_pt_len".intern()
+//				||
+//				f.symbol.name.intern()=="read_c_len".intern()
+//				||
+//				f.symbol.name.intern()=="decode_c".intern()
+//				||
+//				f.symbol.name.intern()=="decode_p".intern()
+//				||
+//				f.symbol.name.intern()=="huf_decode_start".intern()
+//				||
+//				f.symbol.name.intern()=="decode_start".intern()
+//				||
+//				f.symbol.name.intern()=="decode".intern()
+//				||
+//				f.symbol.name.intern()=="unlzh".intern()
+//				||
+//				f.symbol.name.intern()=="unlzw".intern()
+//				||
+//				f.symbol.name.intern()=="read_tree".intern()
+//				||
+//				f.symbol.name.intern()=="build_tree".intern()
+//				||
+//				f.symbol.name.intern()=="unpack".intern()
+//				||
+//				f.symbol.name.intern()=="check_zipfile".intern()
+//				||
+//				f.symbol.name.intern()=="unzip".intern()
+//				||
+//				f.symbol.name.intern()=="copy".intern()
+//				||
+//				f.symbol.name.intern()=="updcrc".intern()
+//				||
+//				f.symbol.name.intern()=="clear_bufs".intern()
+//				||
+//				f.symbol.name.intern()=="fill_inbuf".intern()
+//				||
+//				f.symbol.name.intern()=="flush_outbuf".intern()
+//				||
+//				f.symbol.name.intern()=="flush_window".intern()
+//				||
+//				f.symbol.name.intern()=="write_buf".intern()
+//				||
+//				f.symbol.name.intern()=="strlwr".intern()
+//				||
+//				f.symbol.name.intern()=="gzipbasename".intern()
+//				||
+//				f.symbol.name.intern()=="make_simple_name".intern()
+//				||
+//				f.symbol.name.intern()=="add_envopt".intern()
+//				||
+//				f.symbol.name.intern()=="error".intern()
+//				||
+//				f.symbol.name.intern()=="warn".intern()
+//				||
+//				f.symbol.name.intern()=="read_error".intern()
+//				||
+//				f.symbol.name.intern()=="write_error".intern()
+//				||
+//				f.symbol.name.intern()=="display_ratio".intern()
+//				||
+//				f.symbol.name.intern()=="xmalloc".intern()
+				
+				// zip.c
+//				||
+//				f.symbol.name.intern()=="zip".intern()
+//				||
+//				f.symbol.name.intern()=="file_read".intern()
+				){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	private boolean mesa(Function f){
+		if(
+				f.symbol.name.intern()=="train_match".intern()
+				){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	private boolean gap(Function f){
+		if(
+				// agcollec.c
+				// aggroup.c
+//				f.symbol.name.intern()=="AddString".intern()
+//				||
+//				f.symbol.name.intern()=="AddGen".intern()
+//				||
+//				f.symbol.name.intern()=="TripleWeight".intern()
+//				||
+//				f.symbol.name.intern()=="VLCombiCollect".intern()
+//				||
+//				f.symbol.name.intern()=="CombiCollect".intern()
+//				||
+//				f.symbol.name.intern()=="OrdinaryCollect".intern()
+//				||
+//				f.symbol.name.intern()=="AgCombinatorial".intern()
+//				||
+//				f.symbol.name.intern()=="AddString2".intern()
+//				||
+//				f.symbol.name.intern()=="AddGen2".intern()
+//				||
+//				f.symbol.name.intern()=="CombiCollect2".intern()
+//				||
+//				f.symbol.name.intern()=="OrdinaryCollect2".intern()											
+//				||
+//				f.symbol.name.intern()=="AgCombinatorial2".intern()	
+//				||
+//				f.symbol.name.intern()=="AgSingle".intern()
+//				||
+//				f.symbol.name.intern()=="AgTriple".intern()
+//				||
+//				f.symbol.name.intern()=="AgQuadruple".intern()
+//				||
+//				f.symbol.name.intern()=="ExpandStack".intern()
+//				||
+//				f.symbol.name.intern()=="Collect".intern()
+//				||
+//				f.symbol.name.intern()=="AgSolution".intern()
+//				||
+//				f.symbol.name.intern()=="AgSolution2".intern()
+//				||
+//				f.symbol.name.intern()=="InitSingle".intern()
+//				||
+//				f.symbol.name.intern()=="InitTriple".intern()
+//				||
+//				f.symbol.name.intern()=="InitQuadr".intern()
+//				||
+//				f.symbol.name.intern()=="InitCombinatorial".intern()											
+//				||
+//				f.symbol.name.intern()=="EvalRhs".intern()
+//				||
+//				f.symbol.name.intern()=="EvalGenRels".intern()
+//				||
+//				f.symbol.name.intern()=="CopyRelation".intern()
+//				||
+//				f.symbol.name.intern()=="ReadRelators".intern()
+//				||
+//				f.symbol.name.intern()=="EvalOop".intern()
+//				||
+//				f.symbol.name.intern()=="EvalOop2".intern()
+//				||
+//				f.symbol.name.intern()=="EvalOopN".intern()
+//				||
+//				f.symbol.name.intern()=="AgWordAgExp".intern()
+//				||
+//				f.symbol.name.intern()=="SetCollectExponents".intern()
+//				||
+//				f.symbol.name.intern()=="ClearCollectExponents".intern()
+//				||
+//				f.symbol.name.intern()=="HeadAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FindAgenNr".intern()											
+//				||
+//				f.symbol.name.intern()=="AgListWord".intern()	
+//				||
+//				f.symbol.name.intern()=="BlankAgGroup".intern()
+//				||
+//				f.symbol.name.intern()=="SetGeneratorsAgGroup".intern()
+//				||
+//				f.symbol.name.intern()=="SetAvecAgGroup".intern()
+//				||
+//				f.symbol.name.intern()=="SetCWeightsAgGroup".intern()
+//				||
+//				f.symbol.name.intern()=="SetStacksAgGroup".intern()
+//				||
+//				f.symbol.name.intern()=="SaveAndClearCollector".intern()
+//				||
+//				f.symbol.name.intern()=="RestoreCollector".intern()
+//				||
+//				f.symbol.name.intern()=="EqAg".intern()
+//				||
+//				f.symbol.name.intern()=="LtAg".intern()
+//				||
+//				f.symbol.name.intern()=="EvAg".intern()
+//				||
+//				f.symbol.name.intern()=="ProdAg".intern()											
+//				||
+//				f.symbol.name.intern()=="PowAgI".intern()
+//				||
+//				f.symbol.name.intern()=="QuoAg".intern()
+//				||
+//				f.symbol.name.intern()=="ModAg".intern()
+//				||
+//				f.symbol.name.intern()=="PowAgAg".intern()
+//				||
+//				f.symbol.name.intern()=="CommAg".intern()
+//				||
+//				f.symbol.name.intern()=="TEqAg".intern()
+//				||
+//				f.symbol.name.intern()=="TLtAg".intern()
+//				||
+//				f.symbol.name.intern()=="TProdAg".intern()
+//				||
+//				f.symbol.name.intern()=="TQuoAg".intern()
+//				||
+//				f.symbol.name.intern()=="TModAg".intern()
+//				||
+//				f.symbol.name.intern()=="TPowAgI".intern()
+//				||
+//				f.symbol.name.intern()=="TPowAgAg".intern()											
+//				||
+//				f.symbol.name.intern()=="TCommAg".intern()	
+//				||
+//				f.symbol.name.intern()=="FunDUMPLONG".intern()
+//				||
+//				f.symbol.name.intern()=="GapAgGroup".intern()
+//				||
+//				f.symbol.name.intern()=="FunAgFpGroup".intern()
+//				||
+//				f.symbol.name.intern()=="FunSetCollectorAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunFactorAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FactorAgGroup".intern()
+//				||
+//				f.symbol.name.intern()=="FunFactorAgGroup".intern()
+//				||
+//				f.symbol.name.intern()=="FunAgGroupRecord".intern()
+//				||
+//				f.symbol.name.intern()=="SumAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunSumAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="DifferenceAgWord".intern()											
+//				||
+//				f.symbol.name.intern()=="FunDifferenceAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunDepthAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunTailDepthAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunCentralWeightAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunLeadingExponentAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunReducedAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunNormalizeIgs".intern()
+//				||
+//				f.symbol.name.intern()=="FunRelativeOrderAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunExponentAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="IntExponentsAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FFExponentsAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunExponentsAgWord".intern()											
+//				||
+//				f.symbol.name.intern()=="FunInformationAgWord".intern()	
+//				||
+//				f.symbol.name.intern()=="FunIsAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsCompatibleAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunAgProfile".intern()
+//				||
+//				f.symbol.name.intern()=="FunCollectorProfile".intern()
+//				||
+//				f.symbol.name.intern()=="PrAgWord".intern()
+//				||
+//				f.symbol.name.intern()=="PrAgExp".intern()
+//				||
+//				f.symbol.name.intern()=="PrAgList".intern()
+//				||
+//				f.symbol.name.intern()=="PrAgen".intern()
+//				||
+//				f.symbol.name.intern()=="InitAg".intern()
+				
+				// blister.c
+//				||
+//				f.symbol.name.intern()=="LenBlist".intern()
+//				||
+//				f.symbol.name.intern()=="ElmBlist".intern()											
+//				||
+//				f.symbol.name.intern()=="ElmfBlist".intern()
+//				||
+//				f.symbol.name.intern()=="ElmsBlist".intern()
+//				||
+//				f.symbol.name.intern()=="AssBlist".intern()
+//				||
+//				f.symbol.name.intern()=="AsssBlist".intern()
+//				||
+//				f.symbol.name.intern()=="PosBlist".intern()
+//				||
+//				f.symbol.name.intern()=="PlainBlist".intern()
+//				||
+//				f.symbol.name.intern()=="IsDenseBlist".intern()
+//				||
+//				f.symbol.name.intern()=="IsPossBlist".intern()
+//				||
+//				f.symbol.name.intern()=="EqBlist".intern()
+//				||
+//				f.symbol.name.intern()=="IsBlist".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsBlist".intern()
+//				||
+//				f.symbol.name.intern()=="FunBlistList".intern()											
+//				||
+//				f.symbol.name.intern()=="FunListBlist".intern()	
+//				||
+//				f.symbol.name.intern()=="FunSizeBlist".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsSubsetBlist".intern()
+//				||
+//				f.symbol.name.intern()=="FunUniteBlist".intern()
+//				||
+//				f.symbol.name.intern()=="FunIntersectBlist".intern()
+//				||
+//				f.symbol.name.intern()=="FunSubtractBlist".intern()
+//				||
+//				f.symbol.name.intern()=="FunDistanceBlist".intern()
+//				||
+//				f.symbol.name.intern()=="InitBlist".intern()
+				
+				// coding.c
+				// costab.c
+				// cysclotom.c
+//				||
+//				f.symbol.name.intern()=="RootPrimePower".intern()
+//				||
+//				f.symbol.name.intern()=="ConvMatFFE".intern()
+//				||
+//				f.symbol.name.intern()=="ConvVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="BlistsMatFF2".intern()											
+//				||
+//				f.symbol.name.intern()=="BlistVecFF2".intern()
+//				||
+//				f.symbol.name.intern()=="VecFF2Blist".intern()
+//				||
+//				f.symbol.name.intern()=="WeightVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="DistanceVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunDistanceVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="DistancesDistributionVecFFEsVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunDistancesDistributionVecFFEsVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="DDM2V2".intern()
+//				||
+//				f.symbol.name.intern()=="DDMFVF".intern()
+//				||
+//				f.symbol.name.intern()=="DistancesDistributionMatFFEVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunDistancesDistributionMatFFEVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="CVCM2V2".intern()											
+//				||
+//				f.symbol.name.intern()=="CVCMFVF".intern()	
+//				||
+//				f.symbol.name.intern()=="AClosestVectorCombinationsMatFFEVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunAClosestVectorCombinationsMatFFEVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="CLM2".intern()
+//				||
+//				f.symbol.name.intern()=="CLMF".intern()
+//				||
+//				f.symbol.name.intern()=="CosetLeaderMatFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunCosetLeadersMatFFE".intern()
+//				||
+//				f.symbol.name.intern()=="InitCoding".intern()
+//				||
+//				f.symbol.name.intern()=="CompressDeductionList".intern()
+//				||
+//				f.symbol.name.intern()=="FunApplyRel".intern()
+//				||
+//				f.symbol.name.intern()=="HandleCoinc".intern()
+//				||
+//				f.symbol.name.intern()=="FunMakeConsequences".intern()											
+//				||
+//				f.symbol.name.intern()=="FunStandardizeTable".intern()
+//				||
+//				f.symbol.name.intern()=="InitializeCosetFactorWord".intern()
+//				||
+//				f.symbol.name.intern()=="AddCosetFactor".intern()
+//				||
+//				f.symbol.name.intern()=="AddCosetFactor2".intern()
+//				||
+//				f.symbol.name.intern()=="SubtractCosetFactor".intern()
+//				||
+//				f.symbol.name.intern()=="FunApplyRel2".intern()
+//				||
+//				f.symbol.name.intern()=="FunCopyRel".intern()
+//				||
+//				f.symbol.name.intern()=="FunMakeCanonical".intern()
+//				||
+//				f.symbol.name.intern()=="FunTreeEntry".intern()
+//				||
+//				f.symbol.name.intern()=="TreeEntryC".intern()
+//				||
+//				f.symbol.name.intern()=="HandleCoinc2".intern()
+//				||
+//				f.symbol.name.intern()=="FunMakeConsequences2".intern()											
+//				||
+//				f.symbol.name.intern()=="FunStandardizeTable2".intern()	
+//				||
+//				f.symbol.name.intern()=="FunAddAbelianRelator".intern()
+//				||
+//				f.symbol.name.intern()=="InitCosTab".intern()
+//				||
+//				f.symbol.name.intern()=="ConvertToBase".intern()
+//				||
+//				f.symbol.name.intern()=="Cyclotomic".intern()
+//				||
+//				f.symbol.name.intern()=="EvCyc".intern()
+//				||
+//				f.symbol.name.intern()=="SumCyc".intern()
+//				||
+//				f.symbol.name.intern()=="DiffCyc".intern()
+//				||
+//				f.symbol.name.intern()=="ProdCycI".intern()
+//				||
+//				f.symbol.name.intern()=="ProdCyc".intern()
+//				||
+//				f.symbol.name.intern()=="QuoCyc".intern()
+//				||
+//				f.symbol.name.intern()=="PowCyc".intern()											
+//				||
+//				f.symbol.name.intern()=="EqCyc".intern()
+//				||
+//				f.symbol.name.intern()=="LtCyc".intern()
+//				||
+//				f.symbol.name.intern()=="PrCyc".intern()
+//				||
+//				f.symbol.name.intern()=="FunE".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsCyc".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsCycInt".intern()
+//				||
+//				f.symbol.name.intern()=="FunNofCyc".intern()
+//				||
+//				f.symbol.name.intern()=="FunCoeffsCyc".intern()
+//				||
+//				f.symbol.name.intern()=="FunGaloisCyc".intern()
+//				||
+//				f.symbol.name.intern()=="InitCyc".intern()
+				
+				// eval.c
+//				||
+//				f.symbol.name.intern()=="CantEval".intern()
+//				||
+//				f.symbol.name.intern()=="Sum".intern()											
+//				||
+//				f.symbol.name.intern()=="CantSum".intern()	
+//				||
+//				f.symbol.name.intern()=="Diff".intern()
+//				||
+//				f.symbol.name.intern()=="CantDiff".intern()
+//				||
+//				f.symbol.name.intern()=="Prod".intern()
+//				||
+//				f.symbol.name.intern()=="CantProd".intern()
+//				||
+//				f.symbol.name.intern()=="Quo".intern()
+//				||
+//				f.symbol.name.intern()=="CantQuo".intern()
+//				||
+//				f.symbol.name.intern()=="Mod".intern()
+//				||
+//				f.symbol.name.intern()=="CantMod".intern()
+//				||
+//				f.symbol.name.intern()=="Pow".intern()
+//				||
+//				f.symbol.name.intern()=="CantPow".intern()
+//				||
+//				f.symbol.name.intern()=="IntComm".intern()											
+//				||
+//				f.symbol.name.intern()=="CantComm".intern()
+//				||
+//				f.symbol.name.intern()=="FunLeftQuotient".intern()
+//				||
+//				f.symbol.name.intern()=="Eq".intern()
+//				||
+//				f.symbol.name.intern()=="Lt".intern()
+//				||
+//				f.symbol.name.intern()=="Ne".intern()
+//				||
+//				f.symbol.name.intern()=="Le".intern()
+//				||
+//				f.symbol.name.intern()=="Gt".intern()
+//				||
+//				f.symbol.name.intern()=="Ge".intern()
+//				||
+//				f.symbol.name.intern()=="IsTrue".intern()
+//				||
+//				f.symbol.name.intern()=="IsFalse".intern()
+//				||
+//				f.symbol.name.intern()=="EvVar".intern()
+//				||
+//				f.symbol.name.intern()=="EvVarAuto".intern()											
+//				||
+//				f.symbol.name.intern()=="EvVarAss".intern()	
+//				||
+//				f.symbol.name.intern()=="EvBool".intern()
+//				||
+//				f.symbol.name.intern()=="EvNot".intern()
+//				||
+//				f.symbol.name.intern()=="EvAnd".intern()
+//				||
+//				f.symbol.name.intern()=="EvOr".intern()
+//				||
+//				f.symbol.name.intern()=="EqBool".intern()
+//				||
+//				f.symbol.name.intern()=="LtBool".intern()
+//				||
+//				f.symbol.name.intern()=="PrBool".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsBool".intern()
+//				||
+//				f.symbol.name.intern()=="FunShallowCopy".intern()
+//				||
+//				f.symbol.name.intern()=="CopyShadow".intern()
+//				||
+//				f.symbol.name.intern()=="CopyForward".intern()											
+//				||
+//				f.symbol.name.intern()=="CopyCopy".intern()
+//				||
+//				f.symbol.name.intern()=="CopyCleanup".intern()
+//				||
+//				f.symbol.name.intern()=="Copy".intern()
+//				||
+//				f.symbol.name.intern()=="FunCopy".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsBound".intern()
+//				||
+//				f.symbol.name.intern()=="FunUnbind".intern()
+//				||
+//				f.symbol.name.intern()=="Print".intern()
+//				||
+//				f.symbol.name.intern()=="CantPrint".intern()
+//				||
+//				f.symbol.name.intern()=="PrVar".intern()
+//				||
+//				f.symbol.name.intern()=="PrVarAss".intern()
+//				||
+//				f.symbol.name.intern()=="PrNot".intern()
+//				||
+//				f.symbol.name.intern()=="PrBinop".intern()											
+//				||
+//				f.symbol.name.intern()=="PrComm".intern()	
+//				||
+//				f.symbol.name.intern()=="InstEvFunc".intern()
+//				||
+//				f.symbol.name.intern()=="InstBinOp".intern()
+//				||
+//				f.symbol.name.intern()=="InstPrFunc".intern()
+//				||
+//				f.symbol.name.intern()=="InstVar".intern()
+//				||
+//				f.symbol.name.intern()=="InstIntFunc".intern()
+//				||
+//				f.symbol.name.intern()=="InitEval".intern()
+				
+				// finfield.c
+				// function.c
+//				||
+//				f.symbol.name.intern()=="RootFiniteField".intern()
+//				||
+//				f.symbol.name.intern()=="CommonFF".intern()
+//				||
+//				f.symbol.name.intern()=="EvFFE".intern()
+//				||
+//				f.symbol.name.intern()=="SumFFE".intern()
+//				||
+//				f.symbol.name.intern()=="DiffFFE".intern()											
+//				||
+//				f.symbol.name.intern()=="ProdFFE".intern()
+//				||
+//				f.symbol.name.intern()=="QuoFFE".intern()
+//				||
+//				f.symbol.name.intern()=="PowFFE".intern()
+//				||
+//				f.symbol.name.intern()=="EqFFE".intern()
+//				||
+//				f.symbol.name.intern()=="LtFFE".intern()
+//				||
+//				f.symbol.name.intern()=="PrFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsFFE".intern()
+//				||
+//				f.symbol.name.intern()=="CharFFE".intern()
+//				||
+//				f.symbol.name.intern()=="DegreeFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunLogFFE".intern()
+//				||
+//				f.symbol.name.intern()=="ConvTabIntFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunIntFFE".intern()											
+//				||
+//				f.symbol.name.intern()=="FunZ".intern()	
+//				||
+//				f.symbol.name.intern()=="InitFF".intern()
+//				||
+//				f.symbol.name.intern()=="ChangeEnv".intern()
+//				||
+//				f.symbol.name.intern()=="EvFunccall".intern()
+//				||
+//				f.symbol.name.intern()=="EvFunction".intern()
+//				||
+//				f.symbol.name.intern()=="EvMakefunc".intern()
+//				||
+//				f.symbol.name.intern()=="EvReturn".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsFunc".intern()
+//				||
+//				f.symbol.name.intern()=="FunTrace".intern()
+//				||
+//				f.symbol.name.intern()=="FunUntrace".intern()
+//				||
+//				f.symbol.name.intern()=="FunProfile".intern()
+//				||
+//				f.symbol.name.intern()=="FunApplyFunc".intern()											
+//				||
+//				f.symbol.name.intern()=="PrFuncint".intern()
+//				||
+//				f.symbol.name.intern()=="PrFunction".intern()
+//				||
+//				f.symbol.name.intern()=="PrintFunction".intern()
+//				||
+//				f.symbol.name.intern()=="PrFunccall".intern()
+//				||
+//				f.symbol.name.intern()=="PrReturn".intern()
+//				||
+//				f.symbol.name.intern()=="InitFunc".intern()
+				
+				// gap.c
+				// gasman.c
+//				||
+//				f.symbol.name.intern()=="main".intern()
+//				||
+//				f.symbol.name.intern()=="FunBacktrace".intern()
+//				||
+//				f.symbol.name.intern()=="Error".intern()
+//				||
+//				f.symbol.name.intern()=="FunIgnore".intern()
+//				||
+//				f.symbol.name.intern()=="FunError".intern()
+//				||
+//				f.symbol.name.intern()=="FunWindowCmd".intern()											
+//				||
+//				f.symbol.name.intern()=="FunREAD".intern()	
+//				||
+//				f.symbol.name.intern()=="FunAUTO".intern()
+//				||
+//				f.symbol.name.intern()=="FunPrint".intern()
+//				||
+//				f.symbol.name.intern()=="FunPrntTo".intern()
+//				||
+//				f.symbol.name.intern()=="FunAppendTo".intern()
+//				||
+//				f.symbol.name.intern()=="FunLogTo".intern()
+//				||
+//				f.symbol.name.intern()=="FunLogInputTo".intern()
+//				||
+//				f.symbol.name.intern()=="FunReadTest".intern()
+//				||
+//				f.symbol.name.intern()=="FunHelp".intern()
+//				||
+//				f.symbol.name.intern()=="FunExec".intern()
+//				||
+//				f.symbol.name.intern()=="FunRuntime".intern()
+//				||
+//				f.symbol.name.intern()=="FunSizeScreen".intern()											
+//				||
+//				f.symbol.name.intern()=="FunTmpName".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsIdentical".intern()
+//				||
+//				f.symbol.name.intern()=="FunHANDLE".intern()
+//				||
+//				f.symbol.name.intern()=="FunOBJ".intern()
+//				||
+//				f.symbol.name.intern()=="FunTYPE".intern()
+//				||
+//				f.symbol.name.intern()=="MarkObj".intern()
+//				||
+//				f.symbol.name.intern()=="SizeObj".intern()
+//				||
+//				f.symbol.name.intern()=="FunSIZE".intern()
+//				||
+//				f.symbol.name.intern()=="FunGASMAN".intern()
+//				||
+//				f.symbol.name.intern()=="FunCoefficients".intern()
+//				||
+//				f.symbol.name.intern()=="FunNUMBERHANDLES".intern()
+//				||
+//				f.symbol.name.intern()=="FunSIZEHANDLES".intern()											
+//				||
+//				f.symbol.name.intern()=="InitGap".intern()	
+//				||
+//				f.symbol.name.intern()=="NrHandles".intern()
+//				||
+//				f.symbol.name.intern()=="EnterKernel".intern()
+//				||	
+//				f.symbol.name.intern()=="ExitKernel".intern()
+//				||
+//				f.symbol.name.intern()=="asStr".intern()
+//				||
+//				f.symbol.name.intern()=="CollectGarb".intern()
+//				||
+//				f.symbol.name.intern()=="NewBag".intern()
+//				||
+//				f.symbol.name.intern()=="Retype".intern()
+//				||
+//				f.symbol.name.intern()=="Resize".intern()
+//				||
+//				f.symbol.name.intern()=="InitGasman".intern()
+				
+				// idents.c
+				// integer.c
+//				||
+//				f.symbol.name.intern()=="PushFunction".intern()
+//				||
+//				f.symbol.name.intern()=="PopFunction".intern()											
+//				||
+//				f.symbol.name.intern()=="FindIdent".intern()
+//				||
+//				f.symbol.name.intern()=="FindRecname".intern()
+//				||
+//				f.symbol.name.intern()=="iscomplete".intern()
+//				||
+//				f.symbol.name.intern()=="completion".intern()
+//				||
+//				f.symbol.name.intern()=="InitIdents".intern()
+//				||
+//				f.symbol.name.intern()=="EvInt".intern()
+//				||
+//				f.symbol.name.intern()=="SumInt".intern()
+//				||
+//				f.symbol.name.intern()=="DiffInt".intern()
+//				||
+//				f.symbol.name.intern()=="ProdInt".intern()
+//				||
+//				f.symbol.name.intern()=="ModInt".intern()
+//				||
+//				f.symbol.name.intern()=="PowInt".intern()
+//				||
+//				f.symbol.name.intern()=="EqInt".intern()											
+//				||
+//				f.symbol.name.intern()=="LtInt".intern()	
+//				||
+//				f.symbol.name.intern()=="PrInteger".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsInt".intern()
+//				||
+//				f.symbol.name.intern()=="QuoInt".intern()
+//				||
+//				f.symbol.name.intern()=="FunQuo".intern()
+//				||
+//				f.symbol.name.intern()=="RemInt".intern()
+//				||
+//				f.symbol.name.intern()=="FunRem".intern()
+//				||
+//				f.symbol.name.intern()=="GcdInt".intern()
+//				||
+//				f.symbol.name.intern()=="FunGcdInt".intern()
+//				||
+//				f.symbol.name.intern()=="InitInt".intern()
+				
+				// list.c
+//				||
+//				f.symbol.name.intern()=="CantLenList".intern()
+//				||
+//				f.symbol.name.intern()=="CantElmList".intern()
+//				||
+//				f.symbol.name.intern()=="CantElmsList".intern()
+//				||
+//				f.symbol.name.intern()=="CantAssList".intern()											
+//				||
+//				f.symbol.name.intern()=="CantAsssList".intern()
+//				||
+//				f.symbol.name.intern()=="CantPosList".intern()
+//				||
+//				f.symbol.name.intern()=="CantPlainList".intern()
+//				||
+//				f.symbol.name.intern()=="IsList".intern()
+//				||
+//				f.symbol.name.intern()=="NotIsDenseList".intern()
+//				||
+//				f.symbol.name.intern()=="NotIsPossList".intern()
+//				||
+//				f.symbol.name.intern()=="XType".intern()
+//				||
+//				f.symbol.name.intern()=="EvList".intern()
+//				||
+//				f.symbol.name.intern()=="PrList".intern()
+//				||
+//				f.symbol.name.intern()=="EqList".intern()
+//				||
+//				f.symbol.name.intern()=="LtList".intern()
+//				||
+//				f.symbol.name.intern()=="SumList".intern()											
+//				||
+//				f.symbol.name.intern()=="SumSclList".intern()	
+//				||
+//				f.symbol.name.intern()=="SumListScl".intern()
+//				||
+//				f.symbol.name.intern()=="SumListList".intern()
+//				||
+//				f.symbol.name.intern()=="DiffList".intern()
+//				||
+//				f.symbol.name.intern()=="DiffSclList".intern()
+//				||
+//				f.symbol.name.intern()=="DiffListScl".intern()
+//				||
+//				f.symbol.name.intern()=="DiffListList".intern()
+//				||
+//				f.symbol.name.intern()=="ProdList".intern()
+//				||
+//				f.symbol.name.intern()=="ProdSclList".intern()
+//				||
+//				f.symbol.name.intern()=="ProdListScl".intern()											
+//				||
+//				f.symbol.name.intern()=="ProdListList".intern()
+//				||
+//				f.symbol.name.intern()=="QuoList".intern()
+//				||
+//				f.symbol.name.intern()=="QuoLists".intern()
+//				||
+//				f.symbol.name.intern()=="ModList".intern()
+//				||
+//				f.symbol.name.intern()=="ModLists".intern()
+//				||
+//				f.symbol.name.intern()=="PowList".intern()
+//				||
+//				f.symbol.name.intern()=="PowLists".intern()
+//				||
+//				f.symbol.name.intern()=="CommList".intern()
+//				||
+//				f.symbol.name.intern()=="CommLists".intern()
+//				||
+//				f.symbol.name.intern()=="EvElmList".intern()
+//				||
+//				f.symbol.name.intern()=="ElmListLevel".intern()
+//				||
+//				f.symbol.name.intern()=="EvElmListLevel".intern()											
+//				||
+//				f.symbol.name.intern()=="EvElmsList".intern()	
+//				||
+//				f.symbol.name.intern()=="ElmsListLevel".intern()
+//				||
+//				f.symbol.name.intern()=="EvElmsListLevel".intern()
+//				||
+//				f.symbol.name.intern()=="EvAssList".intern()
+//				||
+//				f.symbol.name.intern()=="AssListLevel".intern()
+//				||
+//				f.symbol.name.intern()=="EvAssListLevel".intern()
+//				||
+//				f.symbol.name.intern()=="PrElmList".intern()
+//				||
+//				f.symbol.name.intern()=="PrElmsList".intern()
+//				||
+//				f.symbol.name.intern()=="PrAssList".intern()
+//				||
+//				f.symbol.name.intern()=="EvIn".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsList".intern()
+//				||
+//				f.symbol.name.intern()=="IsVector".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsVector".intern()											
+//				||
+//				f.symbol.name.intern()=="FunIsMat".intern()
+//				||
+//				f.symbol.name.intern()=="FunLength".intern()
+//				||
+//				f.symbol.name.intern()=="FunAdd".intern()
+//				||
+//				f.symbol.name.intern()=="FunAppend".intern()
+//				||
+//				f.symbol.name.intern()=="FunPosition".intern()
+//				||
+//				f.symbol.name.intern()=="FunOnPoints".intern()
+//				||
+//				f.symbol.name.intern()=="FunOnPairs".intern()
+//				||
+//				f.symbol.name.intern()=="FunOnTuples".intern()
+//				||
+//				f.symbol.name.intern()=="FunOnSets".intern()
+//				||
+//				f.symbol.name.intern()=="FunOnRight".intern()
+//				||
+//				f.symbol.name.intern()=="FunOnLeft".intern()
+//				||
+//				f.symbol.name.intern()=="DepthListx".intern()											
+//				||
+//				f.symbol.name.intern()=="FunDepthVector".intern()	
+//				||
+//				f.symbol.name.intern()=="CantDepthVector".intern()
+//				||
+//				f.symbol.name.intern()=="InitList".intern()
+				
+				// pcpresen.c
+//				||
+//				f.symbol.name.intern()=="FunPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunAgPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunGeneratorsPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunExtendCentralPcp".intern()											
+//				||
+//				f.symbol.name.intern()=="FunCentralWeightsPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunDefineCentralWeightsPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunDefineCommPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunAddCommPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunSubtractCommPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunDefinePowerPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunAddPowerPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunSubtractPowerPcp".intern()
+//				||
+//				f.symbol.name.intern()=="ShrinkSwords".intern()
+//				||
+//				f.symbol.name.intern()=="FunShrinkPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunTriangleIndex".intern()
+//				||
+//				f.symbol.name.intern()=="NormalWordPcp".intern()											
+//				||
+//				f.symbol.name.intern()=="FunNormalWordPcp".intern()	
+//				||
+//				f.symbol.name.intern()=="FunProductPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunLeftQuotientPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunQuotientPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunCommPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunConjugatePcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunPowerPcp".intern()
+//				||
+//				f.symbol.name.intern()=="IsNormedPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunSumPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunDifferencePcp".intern()											
+//				||
+//				f.symbol.name.intern()=="FunExponentPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunExponentsPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunDepthPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunTailDepthPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunBaseReducedPcp".intern()
+//				||
+//				f.symbol.name.intern()=="FunTailReducedPcp".intern()
+//				||
+//				f.symbol.name.intern()=="PrPcPres".intern()
+//				||
+//				f.symbol.name.intern()=="InitPcPres".intern()
+				
+				// permutat.c
+//				||
+//				f.symbol.name.intern()=="EvPerm".intern()
+//				||
+//				f.symbol.name.intern()=="EvMakeperm".intern()
+//				||
+//				f.symbol.name.intern()=="ProdPP".intern()
+//				||
+//				f.symbol.name.intern()=="ProdPQ".intern()											
+//				||
+//				f.symbol.name.intern()=="ProdQP".intern()	
+//				||
+//				f.symbol.name.intern()=="ProdQQ".intern()
+//				||
+//				f.symbol.name.intern()=="QuoPP".intern()
+//				||
+//				f.symbol.name.intern()=="QuoPQ".intern()
+//				||
+//				f.symbol.name.intern()=="QuoQP".intern()
+//				||
+//				f.symbol.name.intern()=="QuoQQ".intern()
+//				||
+//				f.symbol.name.intern()=="ModPP".intern()
+//				||
+//				f.symbol.name.intern()=="ModPQ".intern()
+//				||
+//				f.symbol.name.intern()=="ModQP".intern()
+//				||
+//				f.symbol.name.intern()=="ModQQ".intern()
+//				||
+//				f.symbol.name.intern()=="PowPI".intern()
+//				||
+//				f.symbol.name.intern()=="PowQI".intern()
+//				||
+//				f.symbol.name.intern()=="PowIP".intern()											
+//				||
+//				f.symbol.name.intern()=="PowIQ".intern()
+//				||
+//				f.symbol.name.intern()=="QuoIP".intern()
+//				||
+//				f.symbol.name.intern()=="QuoIQ".intern()
+//				||
+//				f.symbol.name.intern()=="PowPP".intern()
+//				||
+//				f.symbol.name.intern()=="PowPQ".intern()
+//				||
+//				f.symbol.name.intern()=="PowQP".intern()
+//				||
+//				f.symbol.name.intern()=="PowQQ".intern()
+//				||
+//				f.symbol.name.intern()=="CommPP".intern()
+//				||
+//				f.symbol.name.intern()=="CommPQ".intern()
+//				||
+//				f.symbol.name.intern()=="CommQP".intern()
+//				||
+//				f.symbol.name.intern()=="CommQQ".intern()
+//				||
+//				f.symbol.name.intern()=="EqPP".intern()											
+//				||
+//				f.symbol.name.intern()=="EqPQ".intern()	
+//				||
+//				f.symbol.name.intern()=="EqQP".intern()
+//				||
+//				f.symbol.name.intern()=="EqQQ".intern()
+//				||
+//				f.symbol.name.intern()=="LtPP".intern()
+//				||
+//				f.symbol.name.intern()=="LtPQ".intern()
+//				||
+//				f.symbol.name.intern()=="LtQP".intern()
+//				||
+//				f.symbol.name.intern()=="LtQQ".intern()											
+//				||
+//				f.symbol.name.intern()=="PrPermP".intern()	
+//				||
+//				f.symbol.name.intern()=="PrPermQ".intern()
+//				||
+//				f.symbol.name.intern()=="PrMakeperm".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsPerm".intern()
+//				||
+//				f.symbol.name.intern()=="FunPermList".intern()
+//				||
+//				f.symbol.name.intern()=="FunLargestMovedPointPerm".intern()
+//				||
+//				f.symbol.name.intern()=="FunCycleLengthPermInt".intern()
+//				||
+//				f.symbol.name.intern()=="FunCyclePermInt".intern()
+//				||
+//				f.symbol.name.intern()=="FunOrderPerm".intern()
+//				||
+//				f.symbol.name.intern()=="FunSignPerm".intern()
+//				||
+//				f.symbol.name.intern()=="FunSmallestGeneratorPerm".intern()
+//				||
+//				f.symbol.name.intern()=="OnTuplesPerm".intern()
+//				||
+//				f.symbol.name.intern()=="OnSetsPerm".intern()											
+//				||
+//				f.symbol.name.intern()=="InitPermutat".intern()
+				
+				// plist.c
+//				||
+//				f.symbol.name.intern()=="LenPlist".intern()
+//				||
+//				f.symbol.name.intern()=="ElmPlist".intern()
+//				||
+//				f.symbol.name.intern()=="ElmfPlist".intern()
+//				||
+//				f.symbol.name.intern()=="ElmsPlist".intern()
+//				||
+//				f.symbol.name.intern()=="AssPlist".intern()
+//				||
+//				f.symbol.name.intern()=="AsssPlist".intern()
+//				||
+//				f.symbol.name.intern()=="PosPlist".intern()
+//				||
+//				f.symbol.name.intern()=="PlainPlist".intern()
+//				||
+//				f.symbol.name.intern()=="IsDensePlist".intern()
+//				||
+//				f.symbol.name.intern()=="IsPossPlist".intern()
+//				||
+//				f.symbol.name.intern()=="EqPlist".intern()											
+//				||
+//				f.symbol.name.intern()=="LtPlist".intern()	
+//				||
+//				f.symbol.name.intern()=="EvMakeList".intern()
+//				||
+//				f.symbol.name.intern()=="MakeList".intern()
+//				||
+//				f.symbol.name.intern()=="PrMakeList".intern()
+//				||
+//				f.symbol.name.intern()=="InitPlist".intern()
+				
+				// polynome.c
+//				||
+//				f.symbol.name.intern()=="UnifiedFieldVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunShiftedCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="CantShiftedCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="ShiftedCoeffsListx".intern()
+//				||
+//				f.symbol.name.intern()=="ShiftedCoeffsVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunNormalizeCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="CantNormalizeCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="NormalizeCoeffsVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="NormalizeCoeffsListx".intern()
+//				||
+//				f.symbol.name.intern()=="FunShrinkCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="CantShrinkCoeffs".intern()											
+//				||
+//				f.symbol.name.intern()=="ShrinkCoeffsVecFFE".intern()	
+//				||
+//				f.symbol.name.intern()=="ShrinkCoeffsListx".intern()
+//				||
+//				f.symbol.name.intern()=="CantAddCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="AddCoeffsListxListx".intern()
+//				||
+//				f.symbol.name.intern()=="AddCoeffsVecFFEVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="AddCoeffsListxVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunAddCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="FunSumCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="CantMultiplyCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="MultiplyCoeffsListxListx".intern()
+//				||
+//				f.symbol.name.intern()=="MultiplyCoeffsVecFFEVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunProductCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="CantProductCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="ProductCoeffsListxListx".intern()
+//				||
+//				f.symbol.name.intern()=="ProductCoeffsVecFFEVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunProductCoeffsMod".intern()											
+//				||
+//				f.symbol.name.intern()=="CantProductCoeffsMod".intern()	
+//				||
+//				f.symbol.name.intern()=="ProductCoeffsModListxListx".intern()
+//				||
+//				f.symbol.name.intern()=="CantReduceCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="ReduceCoeffsListxListx".intern()
+//				||
+//				f.symbol.name.intern()=="ReduceCoeffsVecFFEVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunReduceCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="FunRemainderCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="CantReduceCoeffsMod".intern()
+//				||
+//				f.symbol.name.intern()=="ReduceCoeffsModListxListx".intern()
+//				||
+//				f.symbol.name.intern()=="ReduceCoeffsModListx".intern()
+//				||
+//				f.symbol.name.intern()=="FunReduceCoeffsMod".intern()
+//				||
+//				f.symbol.name.intern()=="FunPowerModCoeffs".intern()
+//				||
+//				f.symbol.name.intern()=="PowerModListxIntListx".intern()
+//				||
+//				f.symbol.name.intern()=="PowerModVecFFEIntVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="PowerModListxLIntListx".intern()
+//				||
+//				f.symbol.name.intern()=="PowerModVecFFELIntVecFFE".intern()											
+//				||
+//				f.symbol.name.intern()=="CantPowerModCoeffs".intern()	
+//				||
+//				f.symbol.name.intern()=="InitPolynom".intern()
+				
+				// range.c
+//				||
+//				f.symbol.name.intern()=="LenRange".intern()
+//				||
+//				f.symbol.name.intern()=="ElmRange".intern()
+//				||
+//				f.symbol.name.intern()=="ElmfRange".intern()
+//				||
+//				f.symbol.name.intern()=="ElmsRange".intern()
+//				||
+//				f.symbol.name.intern()=="AssRange".intern()
+//				||
+//				f.symbol.name.intern()=="AsssRange".intern()
+//				||
+//				f.symbol.name.intern()=="PosRange".intern()
+//				||
+//				f.symbol.name.intern()=="PlainRange".intern()
+//				||
+//				f.symbol.name.intern()=="IsDenseRange".intern()
+//				||
+//				f.symbol.name.intern()=="IsPossRange".intern()
+//				||
+//				f.symbol.name.intern()=="PrRange".intern()											
+//				||
+//				f.symbol.name.intern()=="EqRange".intern()	
+//				||
+//				f.symbol.name.intern()=="LtRange".intern()
+//				||
+//				f.symbol.name.intern()=="EvMakeRange".intern()
+//				||
+//				f.symbol.name.intern()=="PrMakeRange".intern()
+//				||
+//				f.symbol.name.intern()=="IsRange".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsRange".intern()
+//				||
+//				f.symbol.name.intern()=="InitRange".intern()
+				
+				// rational.c
+//				||
+//				f.symbol.name.intern()=="EvRat".intern()
+//				||
+//				f.symbol.name.intern()=="SumRat".intern()
+//				||
+//				f.symbol.name.intern()=="DiffRat".intern()
+//				||
+//				f.symbol.name.intern()=="ProdRat".intern()
+//				||
+//				f.symbol.name.intern()=="QuoRat".intern()
+//				||
+//				f.symbol.name.intern()=="ModRat".intern()
+//				||
+//				f.symbol.name.intern()=="PowRat".intern()
+//				||
+//				f.symbol.name.intern()=="EqRat".intern()
+//				||
+//				f.symbol.name.intern()=="LtRat".intern()											
+//				||
+//				f.symbol.name.intern()=="PrRat".intern()	
+//				||
+//				f.symbol.name.intern()=="FunIsRat".intern()
+//				||
+//				f.symbol.name.intern()=="FunNumerator".intern()
+//				||
+//				f.symbol.name.intern()=="FunDenominator".intern()
+//				||
+//				f.symbol.name.intern()=="InitRat".intern()
+				
+				// read.c
+//				||
+//				f.symbol.name.intern()=="BinBag".intern()
+//				||
+//				f.symbol.name.intern()=="RdVar".intern()
+//				||
+//				f.symbol.name.intern()=="RdList".intern()
+//				||
+//				f.symbol.name.intern()=="RdRec".intern()
+//				||
+//				f.symbol.name.intern()=="RdPerm".intern()
+//				||
+//				f.symbol.name.intern()=="RdFunc".intern()
+//				||
+//				f.symbol.name.intern()=="RdAtom".intern()
+//				||
+//				f.symbol.name.intern()=="RdFactor".intern()
+//				||
+//				f.symbol.name.intern()=="RdTerm".intern()
+//				||
+//				f.symbol.name.intern()=="RdAri".intern()
+//				||
+//				f.symbol.name.intern()=="RdRel".intern()											
+//				||
+//				f.symbol.name.intern()=="RdAnd".intern()	
+//				||
+//				f.symbol.name.intern()=="RdLog".intern()
+//				||
+//				f.symbol.name.intern()=="RdExpr".intern()
+//				||
+//				f.symbol.name.intern()=="RdIf".intern()
+//				||
+//				f.symbol.name.intern()=="RdFor".intern()
+//				||
+//				f.symbol.name.intern()=="RdWhile".intern()
+//				||
+//				f.symbol.name.intern()=="RdRepeat".intern()
+//				||
+//				f.symbol.name.intern()=="RdReturn".intern()
+//				||
+//				f.symbol.name.intern()=="RdQuit".intern()
+//				||
+//				f.symbol.name.intern()=="RdStat".intern()
+//				||
+//				f.symbol.name.intern()=="RdStats".intern()
+//				||
+//				f.symbol.name.intern()=="ReadIt".intern()
+				
+				// record.c
+//				||
+//				f.symbol.name.intern()=="EvRec".intern()
+//				||
+//				f.symbol.name.intern()=="EvMakeRec".intern()
+//				||
+//				f.symbol.name.intern()=="MakeRec".intern()
+//				||
+//				f.symbol.name.intern()=="EvRecElm".intern()
+//				||
+//				f.symbol.name.intern()=="EvRecAss".intern()
+//				||
+//				f.symbol.name.intern()=="SumRec".intern()
+//				||
+//				f.symbol.name.intern()=="DiffRec".intern()
+//				||
+//				f.symbol.name.intern()=="ProdRec".intern()
+//				||
+//				f.symbol.name.intern()=="QuoRec".intern()
+//				||
+//				f.symbol.name.intern()=="ModRec".intern()
+//				||
+//				f.symbol.name.intern()=="PowRec".intern()											
+//				||
+//				f.symbol.name.intern()=="CommRec".intern()	
+//				||
+//				f.symbol.name.intern()=="EqRec".intern()
+//				||
+//				f.symbol.name.intern()=="LtRec".intern()
+//				||
+//				f.symbol.name.intern()=="InRec".intern()
+//				||
+//				f.symbol.name.intern()=="PrRec".intern()
+//				||
+//				f.symbol.name.intern()=="PrRecElm".intern()
+//				||
+//				f.symbol.name.intern()=="PrRecAss".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsRec".intern()
+//				||
+//				f.symbol.name.intern()=="FunRecFields".intern()
+//				||
+//				f.symbol.name.intern()=="InitRec".intern()
+				
+				// scanner.c
+//				||
+//				f.symbol.name.intern()=="GetLine".intern()
+//				||
+//				f.symbol.name.intern()=="GetIdent".intern()
+//				||
+//				f.symbol.name.intern()=="GetInt".intern()
+//				||
+//				f.symbol.name.intern()=="GetStr".intern()
+//				||
+//				f.symbol.name.intern()=="GetChar".intern()
+//				||
+//				f.symbol.name.intern()=="GetSymbol".intern()
+//				||
+//				f.symbol.name.intern()=="SyntaxError".intern()
+//				||
+//				f.symbol.name.intern()=="Match".intern()
+//				||
+//				f.symbol.name.intern()=="PutLine".intern()
+//				||
+//				f.symbol.name.intern()=="PutChr".intern()
+//				||
+//				f.symbol.name.intern()=="Pr".intern()											
+//				||
+//				f.symbol.name.intern()=="OpenInput".intern()	
+//				||
+//				f.symbol.name.intern()=="CloseInput".intern()
+//				||
+//				f.symbol.name.intern()=="OpenOutput".intern()
+//				||
+//				f.symbol.name.intern()=="CloseOutput".intern()
+//				||
+//				f.symbol.name.intern()=="OpenAppend".intern()
+//				||
+//				f.symbol.name.intern()=="CloseAppend".intern()
+//				||
+//				f.symbol.name.intern()=="OpenLog".intern()
+//				||
+//				f.symbol.name.intern()=="CloseLog".intern()
+//				||
+//				f.symbol.name.intern()=="OpenInputLog".intern()
+//				||
+//				f.symbol.name.intern()=="CloseInputLog".intern()
+//				||
+//				f.symbol.name.intern()=="OpenTest".intern()
+//				||
+//				f.symbol.name.intern()=="CloseTest".intern()
+//				||
+//				f.symbol.name.intern()=="InitScanner".intern()
+				
+				// set.c
+//				||
+//				f.symbol.name.intern()=="LenSet".intern()
+//				||
+//				f.symbol.name.intern()=="ElmSet".intern()
+//				||
+//				f.symbol.name.intern()=="ElmfSet".intern()
+//				||
+//				f.symbol.name.intern()=="ElmsSet".intern()
+//				||
+//				f.symbol.name.intern()=="AssSet".intern()
+//				||
+//				f.symbol.name.intern()=="AsssSet".intern()
+//				||
+//				f.symbol.name.intern()=="PosSet".intern()
+//				||
+//				f.symbol.name.intern()=="PlainSet".intern()
+//				||
+//				f.symbol.name.intern()=="IsDenseSet".intern()
+//				||
+//				f.symbol.name.intern()=="IsPossSet".intern()
+//				||
+//				f.symbol.name.intern()=="EqSet".intern()											
+//				||
+//				f.symbol.name.intern()=="LtSet".intern()	
+//				||
+//				f.symbol.name.intern()=="SetList".intern()
+//				||
+//				f.symbol.name.intern()=="FunSet".intern()
+//				||
+//				f.symbol.name.intern()=="IsSet".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsSet".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsEqualSet".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsSubsetSet".intern()
+//				||
+//				f.symbol.name.intern()=="FunAddSet".intern()
+//				||
+//				f.symbol.name.intern()=="FunRemoveSet".intern()
+//				||
+//				f.symbol.name.intern()=="FunUniteSet".intern()
+//				||
+//				f.symbol.name.intern()=="FunIntersectSet".intern()
+//				||
+//				f.symbol.name.intern()=="FunSubtractSet".intern()
+//				||
+//				f.symbol.name.intern()=="InitSet".intern()
+				
+				// statemen.c
+				// string.c
+//				||
+//				f.symbol.name.intern()=="EvStatseq".intern()
+//				||
+//				f.symbol.name.intern()=="EvIf".intern()
+//				||
+//				f.symbol.name.intern()=="EvFor".intern()
+//				||
+//				f.symbol.name.intern()=="EvWhile".intern()											
+//				||
+//				f.symbol.name.intern()=="EvRepeat".intern()
+//				||
+//				f.symbol.name.intern()=="PrStatseq".intern()
+//				||
+//				f.symbol.name.intern()=="PrIf".intern()
+//				||
+//				f.symbol.name.intern()=="PrFor".intern()
+//				||
+//				f.symbol.name.intern()=="PrWhile".intern()
+//				||
+//				f.symbol.name.intern()=="PrRepeat".intern()
+//				||
+//				f.symbol.name.intern()=="InitStat".intern()
+//				||
+//				f.symbol.name.intern()=="EvChar".intern()
+//				||
+//				f.symbol.name.intern()=="EqChar".intern()
+//				||
+//				f.symbol.name.intern()=="LtChar".intern()
+//				||
+//				f.symbol.name.intern()=="PrChar".intern()
+//				||
+//				f.symbol.name.intern()=="LenString".intern()											
+//				||
+//				f.symbol.name.intern()=="ElmString".intern()	
+//				||
+//				f.symbol.name.intern()=="ElmfString".intern()
+//				||
+//				f.symbol.name.intern()=="ElmsString".intern()
+//				||
+//				f.symbol.name.intern()=="AssString".intern()
+//				||
+//				f.symbol.name.intern()=="AsssString".intern()
+//				||
+//				f.symbol.name.intern()=="PosString".intern()
+//				||
+//				f.symbol.name.intern()=="PlainString".intern()
+//				||
+//				f.symbol.name.intern()=="IsDenseString".intern()
+//				||
+//				f.symbol.name.intern()=="IsPossString".intern()
+//				||
+//				f.symbol.name.intern()=="EqString".intern()
+//				||
+//				f.symbol.name.intern()=="LtString".intern()
+//				||
+//				f.symbol.name.intern()=="PrString".intern()											
+//				||
+//				f.symbol.name.intern()=="PrintString".intern()
+//				||
+//				f.symbol.name.intern()=="IsString".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsString".intern()
+//				||
+//				f.symbol.name.intern()=="EvMakeString".intern()
+//				||
+//				f.symbol.name.intern()=="InitString".intern()
+				
+				// system.c
+//				||
+//				f.symbol.name.intern()=="SyStrlen".intern()
+//				||
+//				f.symbol.name.intern()=="SyStrcmp".intern()
+//				||
+//				f.symbol.name.intern()=="SyStrncat".intern()
+//				||
+//				f.symbol.name.intern()=="SyFopen".intern()
+//				||
+//				f.symbol.name.intern()=="SyFclose".intern()
+//				||
+				f.symbol.name.intern()=="SyFgets".intern()
+//				||
+//				f.symbol.name.intern()=="syAnswerCont".intern()
+//				||
+//				f.symbol.name.intern()=="syAnswerTstp".intern()
+//				||
+//				f.symbol.name.intern()=="syStartraw".intern()
+//				||
+//				f.symbol.name.intern()=="syStopraw".intern()
+//				||
+//				f.symbol.name.intern()=="syGetch".intern()											
+//				||
+//				f.symbol.name.intern()=="syEchoch".intern()	
+//				||
+//				f.symbol.name.intern()=="syEchos".intern()
+//				||
+//				f.symbol.name.intern()=="SyFputs".intern()
+//				||
+//				f.symbol.name.intern()=="syWinPut".intern()
+//				||
+//				f.symbol.name.intern()=="SyPinfo".intern()
+//				||
+//				f.symbol.name.intern()=="SyWinCmd".intern()
+//				||
+//				f.symbol.name.intern()=="syAnswerIntr".intern()
+//				||
+//				f.symbol.name.intern()=="SyIsIntr".intern()
+//				||
+//				f.symbol.name.intern()=="SyExit".intern()
+//				||
+//				f.symbol.name.intern()=="SyExec".intern()
+//				||
+//				f.symbol.name.intern()=="SyTime".intern()
+//				||
+//				f.symbol.name.intern()=="SyTmpname".intern()
+//				||
+//				f.symbol.name.intern()=="SyHelp".intern()
+//				||
+//				f.symbol.name.intern()=="SyGetmem".intern()
+//				||
+//				f.symbol.name.intern()=="InitSystem".intern()
+				
+				// tietze.c
+//				||
+//				f.symbol.name.intern()=="TzRelExponent1".intern()
+//				||
+//				f.symbol.name.intern()=="FunTzRelator".intern()											
+//				||
+//				f.symbol.name.intern()=="FunTzWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunTzSortC".intern()
+//				||
+//				f.symbol.name.intern()=="FunTzRenumberGens".intern()
+//				||
+//				f.symbol.name.intern()=="FunTzReplaceGens".intern()
+//				||
+//				f.symbol.name.intern()=="FunTzSubstituteGen".intern()
+//				||
+//				f.symbol.name.intern()=="FunTzOccurrences".intern()
+//				||
+//				f.symbol.name.intern()=="FunTzOccurrencesPairs".intern()
+//				||
+//				f.symbol.name.intern()=="FunTzSearchC".intern()
+//				||
+//				f.symbol.name.intern()=="InitTietze".intern()
+				
+				// unknown.c
+//				||
+//				f.symbol.name.intern()=="EvUnknown".intern()
+//				||
+//				f.symbol.name.intern()=="NewUnknown".intern()
+//				||
+//				f.symbol.name.intern()=="SumUnknown".intern()											
+//				||
+//				f.symbol.name.intern()=="DiffUnknown".intern()	
+//				||
+//				f.symbol.name.intern()=="ProdUnknown".intern()
+//				||
+//				f.symbol.name.intern()=="QuoUnknown".intern()
+//				||
+//				f.symbol.name.intern()=="PowUnknown".intern()
+//				||
+//				f.symbol.name.intern()=="EqUnknown".intern()
+//				||
+//				f.symbol.name.intern()=="LtUnknown".intern()
+//				||
+//				f.symbol.name.intern()=="PrUnknown".intern()
+//				||
+//				f.symbol.name.intern()=="FunUnknown".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsUnknown".intern()
+//				||
+//				f.symbol.name.intern()=="InitUnknown".intern()
+				
+				// vecffe.c
+//				||
+//				f.symbol.name.intern()=="LenVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="ElmVecFFE".intern()											
+//				||
+//				f.symbol.name.intern()=="ElmfVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="ElmlVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="ElmrVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="ElmsVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="AssVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="AsssVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="PosVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="PlainVecFFE".intern()											
+//				||
+//				f.symbol.name.intern()=="IsDenseVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="IsPossVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="IsXTypeVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="IsXTypeMatFFE".intern()
+//				||
+//				f.symbol.name.intern()=="SumFFEVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="SumVecFFEFFE".intern()
+//				||
+//				f.symbol.name.intern()=="SumVecFFEVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="SumVectorFFE".intern()
+//				||
+//				f.symbol.name.intern()=="SumFFEVector".intern()
+//				||
+//				f.symbol.name.intern()=="DiffFFEVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="DiffVecFFEFFE".intern()
+//				||
+//				f.symbol.name.intern()=="DiffVecFFEVecFFE".intern()											
+//				||
+//				f.symbol.name.intern()=="DiffVectorFFE".intern()	
+//				||
+//				f.symbol.name.intern()=="DiffFFEVector".intern()
+//				||
+//				f.symbol.name.intern()=="ProdFFEVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="ProdVecFFEFFE".intern()
+//				||
+//				f.symbol.name.intern()=="ProdVecFFEVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="ProdVecFFEMatFFE".intern()
+//				||
+//				f.symbol.name.intern()=="ProdVectorFFE".intern()
+//				||
+//				f.symbol.name.intern()=="ProdFFEVector".intern()
+//				||
+//				f.symbol.name.intern()=="PowMatFFEInt".intern()
+//				||
+//				f.symbol.name.intern()=="PrVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="DepthVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="CharVecFFE".intern()											
+//				||
+//				f.symbol.name.intern()=="CharMatFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunCharFFE".intern()
+//				||
+//				f.symbol.name.intern()=="DegreeVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="DegreeMatFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunDegreeFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunLogVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunIntVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="CantIntVecFFE".intern()											
+//				||
+//				f.symbol.name.intern()=="IntVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunMakeVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="FunNumberVecFFE".intern()
+//				||
+//				f.symbol.name.intern()=="InitVecFFE".intern()
+				
+				// vector.c
+//				||
+//				f.symbol.name.intern()=="LenVector".intern()
+//				||
+//				f.symbol.name.intern()=="ElmVector".intern()
+//				||
+//				f.symbol.name.intern()=="ElmfVector".intern()
+//				||
+//				f.symbol.name.intern()=="ElmsVector".intern()
+//				||
+//				f.symbol.name.intern()=="AssVector".intern()
+//				||
+//				f.symbol.name.intern()=="AsssVector".intern()
+//				||
+//				f.symbol.name.intern()=="PosVector".intern()
+//				||
+//				f.symbol.name.intern()=="PlainVector".intern()											
+//				||
+//				f.symbol.name.intern()=="IsDenseVector".intern()	
+//				||
+//				f.symbol.name.intern()=="IsPossVector".intern()
+//				||
+//				f.symbol.name.intern()=="IsXTypeVector".intern()
+//				||
+//				f.symbol.name.intern()=="IsXTypeMatrix".intern()
+//				||
+//				f.symbol.name.intern()=="EqVector".intern()
+//				||
+//				f.symbol.name.intern()=="LtVector".intern()
+//				||
+//				f.symbol.name.intern()=="SumIntVector".intern()
+//				||
+//				f.symbol.name.intern()=="SumVectorInt".intern()
+//				||
+//				f.symbol.name.intern()=="SumVectorVector".intern()
+//				||
+//				f.symbol.name.intern()=="DiffIntVector".intern()
+//				||
+//				f.symbol.name.intern()=="DiffVectorInt".intern()
+//				||
+//				f.symbol.name.intern()=="DiffVectorVector".intern()											
+//				||
+//				f.symbol.name.intern()=="ProdIntVector".intern()
+//				||
+//				f.symbol.name.intern()=="ProdVectorInt".intern()
+//				||
+//				f.symbol.name.intern()=="ProdVectorVector".intern()
+//				||
+//				f.symbol.name.intern()=="ProdVectorMatrix".intern()
+//				||
+//				f.symbol.name.intern()=="PowMatrixInt".intern()
+//				||
+//				f.symbol.name.intern()=="InitVector".intern()
+				
+				// word.c
+//				||
+//				f.symbol.name.intern()=="SwordWord".intern()
+//				||
+//				f.symbol.name.intern()=="WordSword".intern()											
+//				||
+//				f.symbol.name.intern()=="SwordSword".intern()
+//				||
+//				f.symbol.name.intern()=="EvWord".intern()
+//				||
+//				f.symbol.name.intern()=="ProdWord".intern()
+//				||
+//				f.symbol.name.intern()=="QuoWord".intern()
+//				||
+//				f.symbol.name.intern()=="ModWord".intern()
+//				||
+//				f.symbol.name.intern()=="PowWI".intern()
+//				||
+//				f.symbol.name.intern()=="PowWW".intern()
+//				||
+//				f.symbol.name.intern()=="CommWord".intern()
+//				||
+//				f.symbol.name.intern()=="EqWord".intern()
+//				||
+//				f.symbol.name.intern()=="LtAgen".intern()
+//				||
+//				f.symbol.name.intern()=="LtWord".intern()
+//				||
+//				f.symbol.name.intern()=="PrSword".intern()											
+//				||
+//				f.symbol.name.intern()=="PrWord".intern()	
+//				||
+//				f.symbol.name.intern()=="FunAbstractGenerator".intern()
+//				||
+//				f.symbol.name.intern()=="Words".intern()
+//				||
+//				f.symbol.name.intern()=="FunAbstractGenerators".intern()
+//				||
+//				f.symbol.name.intern()=="FunLenWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunSubword".intern()
+//				||
+//				f.symbol.name.intern()=="FunSubs".intern()
+//				||
+//				f.symbol.name.intern()=="FunPosWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunIsWord".intern()
+//				||
+//				f.symbol.name.intern()=="FunEliminated".intern()
+//				||
+//				f.symbol.name.intern()=="FunExpsum".intern()
+//				||
+//				f.symbol.name.intern()=="FunMappedWord".intern()											
+//				||
+//				f.symbol.name.intern()=="InitWord".intern()
+				){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	private boolean ammp(Function f){
+		if(
+			// ammp.c
+			// analyze.c
+			// anonbon.c
+			// animate.c
+			// atoms.c
+			// angle.c
+			// angle.c
+//			f.symbol.name.intern()=="main".intern()
+//			||
+//			f.symbol.name.intern()=="analyze".intern()
+//			||
+//			f.symbol.name.intern()=="a_nonbon".intern()
+//			||
+//			f.symbol.name.intern()=="v_maxwell".intern()
+//			||
+//			f.symbol.name.intern()=="v_rescale".intern()
+//			||
+//			f.symbol.name.intern()=="verlet".intern()
+//			||
+//			f.symbol.name.intern()=="pac".intern()
+//			||
+//			f.symbol.name.intern()=="tpac".intern()
+//			||
+//			f.symbol.name.intern()=="pacpac".intern()
+//			||
+//			f.symbol.name.intern()=="hpac".intern()
+//			||
+//			f.symbol.name.intern()=="ppac".intern()
+//			||
+//			f.symbol.name.intern()=="ptpac".intern()
+//			||
+//			f.symbol.name.intern()=="atom".intern()
+//			||
+//			f.symbol.name.intern()=="a_number".intern()											
+//			||
+//			f.symbol.name.intern()=="a_m_serial".intern()	
+//			||
+//			f.symbol.name.intern()=="a_next".intern()
+//			||
+//			f.symbol.name.intern()=="a_f_zero".intern()
+//			||	
+//			f.symbol.name.intern()=="a_d_zero".intern()
+//			||
+//			f.symbol.name.intern()=="a_g_zero".intern()
+//			||
+//			f.symbol.name.intern()=="a_v_zero".intern()
+//			||
+//			f.symbol.name.intern()=="a_inc_f".intern()
+//			||
+//			f.symbol.name.intern()=="a_inc_d".intern()
+//			||
+//			f.symbol.name.intern()=="a_inc_v".intern()
+//			||
+//			f.symbol.name.intern()=="a_ftodx".intern()
+//			||
+//			f.symbol.name.intern()=="a_ftogx".intern()
+//			||
+//			f.symbol.name.intern()=="a_ftovx".intern()											
+//			||
+//			f.symbol.name.intern()=="a_max_f".intern()
+//			||
+//			f.symbol.name.intern()=="a_max_d".intern()
+//			||
+//			f.symbol.name.intern()=="a_l2_f".intern()
+//			||
+//			f.symbol.name.intern()=="a_l2_g".intern()
+//			||
+//			f.symbol.name.intern()=="a_l2_v".intern()
+//			||
+//			f.symbol.name.intern()=="a_l2_d".intern()
+//			||
+//			f.symbol.name.intern()=="dump_atoms".intern()
+//			||
+//			f.symbol.name.intern()=="dump_excludes".intern()
+//			||
+//			f.symbol.name.intern()=="dump_velocity".intern()
+//			||
+//			f.symbol.name.intern()=="a_readvelocity".intern()
+//			||
+//			f.symbol.name.intern()=="dump_force".intern()
+//			||
+//			f.symbol.name.intern()=="dump_pdb".intern()											
+//			||
+//			f.symbol.name.intern()=="a_pr_beta".intern()	
+//			||
+//			f.symbol.name.intern()=="inactivate_non_zero".intern()
+//			||
+//			f.symbol.name.intern()=="inactivate".intern()
+//			||
+//			f.symbol.name.intern()=="activate".intern()
+//			||
+//			f.symbol.name.intern()=="a_inactive_f_zero".intern()
+//			||
+//			f.symbol.name.intern()=="angle".intern()
+//			||
+//			f.symbol.name.intern()=="v_angle".intern()
+//			||
+//			f.symbol.name.intern()=="f_angle".intern()
+//			||
+//			f.symbol.name.intern()=="get_angle".intern()
+//			||
+//			f.symbol.name.intern()=="dump_angles".intern()
+//			||
+//			f.symbol.name.intern()=="v_mmangle".intern()
+//			||
+//			f.symbol.name.intern()=="f_mmangle".intern()											
+//			||
+//			f.symbol.name.intern()=="a_angle".intern()	
+//			||
+//			f.symbol.name.intern()=="a_mmangle".intern()
+//			||
+//			f.symbol.name.intern()=="v_c_angle".intern()
+//			||
+//			f.symbol.name.intern()=="f_c_angle".intern()
+//			||
+//			f.symbol.name.intern()=="a_c_angle".intern()
+//			||
+//			f.symbol.name.intern()=="gsdg_angle".intern()
+//			||
+//			f.symbol.name.intern()=="v_ho_angle".intern()
+//			||
+//			f.symbol.name.intern()=="f_ho_angle".intern()
+				
+			// box.c
+			// bonds.c
+//			||
+//			f.symbol.name.intern()=="v_box".intern()
+//			||
+//			f.symbol.name.intern()=="f_box".intern()
+//			||
+//			f.symbol.name.intern()=="bond".intern()
+//			||
+//			f.symbol.name.intern()=="v_bond".intern()
+//			||
+//			f.symbol.name.intern()=="f_bond".intern()
+//			||
+//			f.symbol.name.intern()=="get_bond".intern()
+//			||
+//			f.symbol.name.intern()=="dump_bonds".intern()
+//			||
+//			f.symbol.name.intern()=="v_mmbond".intern()
+//			||
+//			f.symbol.name.intern()=="f_mmbond".intern()
+//			||
+//			f.symbol.name.intern()=="a_bond".intern()
+//			||
+//			f.symbol.name.intern()=="a_mmbond".intern()											
+//			||
+//			f.symbol.name.intern()=="bond_length".intern()
+//			||
+//			f.symbol.name.intern()=="gsdg_bond".intern()
+//			||
+//			f.symbol.name.intern()=="get_bond_pointer".intern()
+//			||
+//			f.symbol.name.intern()=="v_ho_bond".intern()
+//			||
+//			f.symbol.name.intern()=="f_ho_bond".intern()
+			
+			// eval.c
+//			||
+//			f.symbol.name.intern()=="read_eval_do".intern()
+//			||
+//			f.symbol.name.intern()=="eval".intern()
+//			||
+//			f.symbol.name.intern()=="aaerror".intern()
+//			||
+//			f.symbol.name.intern()=="tisvariable".intern()											
+//			||
+//			f.symbol.name.intern()=="tisint".intern()	
+//			||
+//			f.symbol.name.intern()=="loadloop".intern()
+			
+			
+			// noel.c
+//			||
+//			f.symbol.name.intern()=="noel".intern()
+//			||
+//			f.symbol.name.intern()=="v_noel".intern()
+//			||
+//			f.symbol.name.intern()=="f_noel".intern()
+//			||
+//			f.symbol.name.intern()=="get_noel".intern()
+//			||
+//			f.symbol.name.intern()=="dump_noels".intern()
+//			||
+//			f.symbol.name.intern()=="a_noel".intern()
+//			||
+//			f.symbol.name.intern()=="gsdg_noel".intern()
+//			||
+//			f.symbol.name.intern()=="v_ho_noel".intern()											
+//			||
+//			f.symbol.name.intern()=="f_ho_noel".intern()
+			
+			// gsdg.c
+//			||
+//			f.symbol.name.intern()=="gsdg".intern()
+//			||
+//			f.symbol.name.intern()=="gsdg_line_search".intern()
+//			||
+//			f.symbol.name.intern()=="gsdg_dgeom".intern()
+//			||
+//			f.symbol.name.intern()=="v_trace".intern()											
+//			||
+//			f.symbol.name.intern()=="f_trace".intern()
+			
+			// hybrid.c
+//			||
+//			f.symbol.name.intern()=="hybrid".intern()
+//			||
+//			f.symbol.name.intern()=="v_hybrid".intern()
+//			||
+			f.symbol.name.intern()=="f_hybrid".intern()
+//			||
+//			f.symbol.name.intern()=="get_hybrid".intern()
+//			||
+//			f.symbol.name.intern()=="dump_hybrids".intern()
+//			||
+//			f.symbol.name.intern()=="a_hybrid".intern()
+//			||
+//			f.symbol.name.intern()=="v_ho_hybrid".intern()
+//			||
+//			f.symbol.name.intern()=="f_ho_hybrid".intern()
+//			||
+//			f.symbol.name.intern()=="gsdg_hybrid".intern()
+			
+			// unonbon.c
+//			||
+//			f.symbol.name.intern()=="u_v_nonbon".intern()											
+//			||
+//			f.symbol.name.intern()=="u_f_nonbon".intern()	
+//			||
+//			f.symbol.name.intern()=="uselist".intern()
+			
+			// rectmm.c
+			// random.c
+//			||
+//			f.symbol.name.intern()=="mm_fv_update_nonbon".intern()
+//			||
+//			f.symbol.name.intern()=="randf".intern()
+//			||
+//			f.symbol.name.intern()=="randg".intern()
+//			||
+//			f.symbol.name.intern()=="rand3".intern()
+			
+			// vnonbon.c
+//			||
+//			f.symbol.name.intern()=="fv_update_nonbon".intern()
+//			||
+//			f.symbol.name.intern()=="f_nonbon".intern()
+//			||
+//			f.symbol.name.intern()=="v_nonbon".intern()
+//			||
+//			f.symbol.name.intern()=="zone_nonbon".intern()
+			
+			// tgroup.c
+			// tset.c
+			// tailor.c
+			// torsion.c
+			// tether.c
+//			||
+//			f.symbol.name.intern()=="tgroup".intern()
+//			||
+//			f.symbol.name.intern()=="tsearch".intern()
+//			||
+//			f.symbol.name.intern()=="tg_gen_con".intern()
+//			||
+//			f.symbol.name.intern()=="tg_init".intern()
+//			||
+//			f.symbol.name.intern()=="tg_do_search".intern()											
+//			||
+//			f.symbol.name.intern()=="tg_apply".intern()
+//			||
+//			f.symbol.name.intern()=="tg_d_apply".intern()
+//			||
+//			f.symbol.name.intern()=="dump_tgroup".intern()
+//			||
+//			f.symbol.name.intern()=="match_tgroup".intern()
+//			||
+//			f.symbol.name.intern()=="tg_nonbon".intern()
+//			||
+//			f.symbol.name.intern()=="tset".intern()
+//			||
+//			f.symbol.name.intern()=="tmin".intern()
+//			||
+//			f.symbol.name.intern()=="tset_bond_build".intern()
+//			||
+//			f.symbol.name.intern()=="get_torsion_value".intern()
+//			||
+//			f.symbol.name.intern()=="set_torsion".intern()
+//			||
+//			f.symbol.name.intern()=="tmap".intern()
+//			||
+//			f.symbol.name.intern()=="tailor_qab".intern()
+//			||
+//			f.symbol.name.intern()=="tailor_include".intern()											
+//			||
+//			f.symbol.name.intern()=="tailor_exclude".intern()	
+//			||
+//			f.symbol.name.intern()=="torsion".intern()
+//			||
+//			f.symbol.name.intern()=="v_torsion".intern()
+//			||	
+//			f.symbol.name.intern()=="f_torsion".intern()
+//			||
+//			f.symbol.name.intern()=="get_torsion".intern()
+//			||
+//			f.symbol.name.intern()=="dump_torsions".intern()
+//			||
+//			f.symbol.name.intern()=="a_torsion".intern()
+//			||
+//			f.symbol.name.intern()=="gsdg_torsion".intern()
+//			||
+//			f.symbol.name.intern()=="tether".intern()
+//			||
+//			f.symbol.name.intern()=="v_mmbond".intern()
+//			||
+//			f.symbol.name.intern()=="f_mmbond".intern()
+//			||
+//			f.symbol.name.intern()=="a_bond".intern()
+//			||
+//			f.symbol.name.intern()=="a_mmbond".intern()											
+//			||
+//			f.symbol.name.intern()=="bond_length".intern()
+//			||
+//			f.symbol.name.intern()=="gsdg_bond".intern()
+//			||
+//			f.symbol.name.intern()=="get_bond_pointer".intern()
+//			||
+//			f.symbol.name.intern()=="v_ho_bond".intern()
+//			||
+//			f.symbol.name.intern()=="f_ho_bond".intern()
+			
+			// optimist.c
+//			||
+//			f.symbol.name.intern()=="steep".intern()
+//			||
+//			f.symbol.name.intern()=="cngdel".intern()
+//			||
+//			f.symbol.name.intern()=="linmin".intern()
+			
+			// variable.c
+//			||
+//			f.symbol.name.intern()=="match_variable".intern()											
+//			||
+//			f.symbol.name.intern()=="set_f_variable".intern()
+//			||
+//			f.symbol.name.intern()=="set_i_variable".intern()
+//			||
+//			f.symbol.name.intern()=="get_f_variable".intern()
+//			||
+//			f.symbol.name.intern()=="get_i_variable".intern()
+//			||
+//			f.symbol.name.intern()=="dump_variable".intern()
+			
+			// math.c
+			// mom.c
+			// monitor.c
+//			||
+//			f.symbol.name.intern()=="math".intern()
+//			||
+//			f.symbol.name.intern()=="validatom".intern()
+//			||
+//			f.symbol.name.intern()=="getatomdata".intern()
+//			||
+//			f.symbol.name.intern()=="math_match_atom".intern()
+//			||
+//			f.symbol.name.intern()=="math_findlabel".intern()
+//			||
+//			f.symbol.name.intern()=="mom".intern()
+//			||
+//			f.symbol.name.intern()=="mom_add".intern()											
+//			||
+//			f.symbol.name.intern()=="mom_param".intern()	
+//			||
+//			f.symbol.name.intern()=="mom_jab".intern()
+//			||
+//			f.symbol.name.intern()=="mom_solve".intern()
+//			||
+//			f.symbol.name.intern()=="AMMPmonitor".intern()
+//			||
+//			f.symbol.name.intern()=="AMMPmonitor_mute".intern()
+			
+			// significance.c
+//			||
+//			f.symbol.name.intern()=="significance".intern()
+			){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	private boolean vpr(Function f){
+		if(
+				// main.c
+//				f.symbol.name.intern()=="main".intern()
+//				||
+//				f.symbol.name.intern()=="parse_command".intern()
+//				||
+//				f.symbol.name.intern()=="get_input".intern()
+//				||
+//				f.symbol.name.intern()=="read_int_option".intern()
+//				||
+//				f.symbol.name.intern()=="read_float_option".intern()
+				
+				// util.c
+//				||
+//				f.symbol.name.intern()=="my_fopen".intern()
+//				||
+//				f.symbol.name.intern()=="my_calloc".intern()
+//				||
+//				f.symbol.name.intern()=="my_malloc".intern()
+//				||
+//				f.symbol.name.intern()=="my_realloc".intern()
+//				||
+//				f.symbol.name.intern()=="my_chunk_malloc".intern()
+//				||
+//				f.symbol.name.intern()=="free_chunk_memory".intern()
+//				||
+//				f.symbol.name.intern()=="insert_in_vptr_list".intern()
+//				||
+//				f.symbol.name.intern()=="insert_in_int_list".intern()
+//				||
+//				f.symbol.name.intern()=="free_int_list".intern()
+//				||
+//				f.symbol.name.intern()=="my_fgets".intern()
+//				||
+//				f.symbol.name.intern()=="my_strtok".intern()
+//				||
+//				f.symbol.name.intern()=="free_ivec_vector".intern()
+//				||
+//				f.symbol.name.intern()=="free_ivec_matrix".intern()
+//				||
+//				f.symbol.name.intern()=="free_ivec_matrix3".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_matrix".intern()
+//				||
+//				f.symbol.name.intern()=="free_matrix".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_matrix3".intern()
+//				||
+//				f.symbol.name.intern()=="free_matrix3".intern()
+//				||
+//				f.symbol.name.intern()=="my_srandom".intern()
+//				||
+//				f.symbol.name.intern()=="my_irand".intern()
+//				||
+//				f.symbol.name.intern()=="my_frand".intern()
+				
+				// read_netlist.c
+				// read_arch.c
+				// route.c
+//				||
+//				f.symbol.name.intern()=="read_net".intern()
+//				||
+//				f.symbol.name.intern()=="init_parse".intern()
+//				||
+//				f.symbol.name.intern()=="get_tok".intern()
+//				||
+//				f.symbol.name.intern()=="get_pin_number".intern()
+//				||
+//				f.symbol.name.intern()=="load_subblock_array".intern()
+//				||
+//				f.symbol.name.intern()=="set_subblock_count".intern()
+//				||
+//				f.symbol.name.intern()=="parse_subblocks".intern()
+//				||
+//				f.symbol.name.intern()=="add_clb".intern()
+//				||
+//				f.symbol.name.intern()=="add_io".intern()
+//				||
+//				f.symbol.name.intern()=="parse_name_and_pinlist".intern()
+//				||
+//				f.symbol.name.intern()=="add_global".intern()
+//				||
+//				f.symbol.name.intern()=="add_net".intern()
+//				||
+//				f.symbol.name.intern()=="print_pinnum".intern()
+//				||
+//				f.symbol.name.intern()=="netlist_echo".intern()
+//				||
+				f.symbol.name.intern()=="check_netlist".intern()
+//				||
+//				f.symbol.name.intern()=="check_for_multiple_sink_connections".intern()
+//				||
+//				f.symbol.name.intern()=="get_num_conn".intern()
+//				||
+//				f.symbol.name.intern()=="free_parse".intern()
+//				||
+//				f.symbol.name.intern()=="read_arch".intern()
+//				||
+//				f.symbol.name.intern()=="countpass".intern()
+//				||
+//				f.symbol.name.intern()=="get_class".intern()
+//				||
+//				f.symbol.name.intern()=="get_pin".intern()
+////				||
+//				f.symbol.name.intern()=="get_Fc_type".intern()
+//				||
+//				f.symbol.name.intern()=="get_switch_block_type".intern()
+//				||
+//				f.symbol.name.intern()=="get_segment_inf".intern()
+//				||
+//				f.symbol.name.intern()=="get_switch_inf".intern()
+//				||
+//				f.symbol.name.intern()=="load_global_segment_and_switch".intern()
+//				||
+//				f.symbol.name.intern()=="load_extra_switch_types".intern()
+//				||
+//				f.symbol.name.intern()=="check_keyword".intern()
+//				||
+//				f.symbol.name.intern()=="get_middle_token".intern()
+//				||
+//				f.symbol.name.intern()=="get_last_token".intern()
+//				||
+//				f.symbol.name.intern()=="get_int".intern()
+//				||
+//				f.symbol.name.intern()=="get_one_float".intern()
+//				||
+//				f.symbol.name.intern()=="get_float".intern()
+//				||
+//				f.symbol.name.intern()=="get_chan".intern()
+//				||
+//				f.symbol.name.intern()=="check_arch".intern()
+//				||
+//				f.symbol.name.intern()=="print_arch".intern()
+//				||
+//				f.symbol.name.intern()=="init_arch".intern()
+//				||
+//				f.symbol.name.intern()=="fill_arch".intern()
+//				||
+//				f.symbol.name.intern()=="save_routing".intern()
+//				||
+//				f.symbol.name.intern()=="restore_routing".intern()
+//				||
+//				f.symbol.name.intern()=="get_serial_num".intern()
+//				||
+//				f.symbol.name.intern()=="try_route".intern()
+//				||
+//				f.symbol.name.intern()=="feasible_routing".intern()
+//				||
+//				f.symbol.name.intern()=="pathfinder_update_one_cost".intern()
+//				||
+//				f.symbol.name.intern()=="pathfinder_update_cost".intern()
+//				||
+//				f.symbol.name.intern()=="init_route_structs".intern()
+//				||
+//				f.symbol.name.intern()=="route_net".intern()
+//				||
+//				f.symbol.name.intern()=="expand_trace_segment".intern()
+//				||
+//				f.symbol.name.intern()=="invalidate_heap_entries".intern()											
+//				||
+//				f.symbol.name.intern()=="update_traceback".intern()	
+//				||
+//				f.symbol.name.intern()=="reset_path_costs".intern()
+//				||
+//				f.symbol.name.intern()=="expand_neighbours".intern()
+//				||
+//				f.symbol.name.intern()=="add_source_to_heap".intern()
+//				||
+//				f.symbol.name.intern()=="mark_ends".intern()
+//				||
+//				f.symbol.name.intern()=="node_to_heap".intern()
+//				||
+//				f.symbol.name.intern()=="free_traceback".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_route_structs".intern()
+//				||
+//				f.symbol.name.intern()=="free_route_structs".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_rr_node_route_structs".intern()
+//				||
+//				f.symbol.name.intern()=="free_rr_node_route_structs".intern()
+//				||
+//				f.symbol.name.intern()=="load_route_bb".intern()											
+//				||
+//				f.symbol.name.intern()=="add_to_mod_list".intern()
+//				||
+//				f.symbol.name.intern()=="add_to_heap".intern()
+//				||
+//				f.symbol.name.intern()=="get_heap_head".intern()
+//				||
+//				f.symbol.name.intern()=="empty_heap".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_heap_data".intern()
+//				||
+//				f.symbol.name.intern()=="free_heap_data".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_trace_data".intern()											
+//				||
+//				f.symbol.name.intern()=="free_trace_data".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_linked_f_pointer".intern()
+//				||
+//				f.symbol.name.intern()=="print_route".intern()
+				
+				// place.c
+//				||
+//				f.symbol.name.intern()=="place_and_route".intern()
+//				||
+//				f.symbol.name.intern()=="binary_search_place_and_route".intern()
+//				||
+//				f.symbol.name.intern()=="try_place".intern()
+//				||
+//				f.symbol.name.intern()=="get_std_dev".intern()
+//				||
+//				f.symbol.name.intern()=="update_rlim".intern()
+//				||
+//				f.symbol.name.intern()=="update_t".intern()
+//				||
+//				f.symbol.name.intern()=="exit_crit".intern()
+//				||
+//				f.symbol.name.intern()=="starting_t".intern()
+//				||
+//				f.symbol.name.intern()=="try_swap".intern()
+//				||
+//				f.symbol.name.intern()=="save_region_occ".intern()
+//				||
+//				f.symbol.name.intern()=="restore_region_occ".intern()											
+//				||
+//				f.symbol.name.intern()=="find_affected_nets".intern()	
+//				||
+//				f.symbol.name.intern()=="find_to".intern()
+//				||
+//				f.symbol.name.intern()=="assess_swap".intern()
+//				||
+//				f.symbol.name.intern()=="recompute_cost".intern()
+//				||
+//				f.symbol.name.intern()=="comp_cost".intern()
+//				||
+//				f.symbol.name.intern()=="nonlinear_cong_cost".intern()
+//				||
+//				f.symbol.name.intern()=="update_region_occ".intern()
+//				||
+//				f.symbol.name.intern()=="free_place_regions".intern()
+//				||
+//				f.symbol.name.intern()=="free_placement_structs".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_placement_structs".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_place_regions".intern()
+//				||
+//				f.symbol.name.intern()=="load_place_regions".intern()											
+//				||
+//				f.symbol.name.intern()=="free_unique_pin_list".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_unique_pin_list".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_place_regions".intern()
+//				||
+//				f.symbol.name.intern()=="load_place_regions".intern()
+//				||
+//				f.symbol.name.intern()=="free_unique_pin_list".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_unique_pin_list".intern()
+//				||
+//				f.symbol.name.intern()=="get_bb_from_scratch".intern()											
+//				||
+//				f.symbol.name.intern()=="net_cost".intern()
+//				||
+//				f.symbol.name.intern()=="get_non_updateable_bb".intern()
+//				||
+//				f.symbol.name.intern()=="update_bb".intern()
+//				||
+//				f.symbol.name.intern()=="initial_placement".intern()
+//				||
+//				f.symbol.name.intern()=="init_chan".intern()
+//				||
+//				f.symbol.name.intern()=="comp_width".intern()
+//				||
+//				f.symbol.name.intern()=="free_fast_cost_update_structs".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_for_fast_cost_update".intern()
+//				||
+//				f.symbol.name.intern()=="check_place".intern()											
+//				||
+//				f.symbol.name.intern()=="read_place".intern()
+				
+				// draw.c
+//				||
+//				f.symbol.name.intern()=="set_graphics_state".intern()
+//				||
+//				f.symbol.name.intern()=="update_screen".intern()
+//				||
+//				f.symbol.name.intern()=="drawscreen".intern()
+//				||
+//				f.symbol.name.intern()=="redraw_screen".intern()
+//				||
+//				f.symbol.name.intern()=="toggle_nets".intern()
+//				||
+//				f.symbol.name.intern()=="toggle_rr".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_draw_structs".intern()
+//				||
+//				f.symbol.name.intern()=="init_draw_coords".intern()
+//				||
+//				f.symbol.name.intern()=="drawplace".intern()
+//				||
+//				f.symbol.name.intern()=="drawnets".intern()
+//				||
+//				f.symbol.name.intern()=="get_block_center".intern()											
+//				||
+//				f.symbol.name.intern()=="draw_rr".intern()	
+//				||
+//				f.symbol.name.intern()=="draw_rr_chanx".intern()
+//				||
+//				f.symbol.name.intern()=="draw_rr_chany".intern()
+//				||
+//				f.symbol.name.intern()=="draw_rr_edges".intern()
+//				||
+//				f.symbol.name.intern()=="draw_pin_to_chan_edge".intern()
+//				||
+//				f.symbol.name.intern()=="draw_x".intern()
+//				||
+//				f.symbol.name.intern()=="draw_chanx_to_chany_edge".intern()
+//				||
+//				f.symbol.name.intern()=="draw_chanx_to_chanx_edge".intern()
+//				||
+//				f.symbol.name.intern()=="draw_chany_to_chany_edge".intern()
+//				||
+//				f.symbol.name.intern()=="draw_rr_switch".intern()
+//				||
+//				f.symbol.name.intern()=="draw_rr_pin".intern()
+//				||
+//				f.symbol.name.intern()=="get_rr_pin_draw_coords".intern()											
+//				||
+//				f.symbol.name.intern()=="drawroute".intern()
+//				||
+//				f.symbol.name.intern()=="get_track_num".intern()
+//				||
+//				f.symbol.name.intern()=="highlight_blocks".intern()
+//				||
+//				f.symbol.name.intern()=="deselect_all".intern()
+				
+				// graphics.c
+//				||
+//				f.symbol.name.intern()=="event_loop".intern()
+//				||
+//				f.symbol.name.intern()=="init_graphics".intern()
+//				||
+//				f.symbol.name.intern()=="close_graphics".intern()											
+//				||
+//				f.symbol.name.intern()=="update_message".intern()
+//				||
+//				f.symbol.name.intern()=="draw_message".intern()
+//				||
+//				f.symbol.name.intern()=="init_world".intern()
+//				||
+//				f.symbol.name.intern()=="flushinput".intern()
+//				||
+//				f.symbol.name.intern()=="setcolor".intern()
+//				||
+//				f.symbol.name.intern()=="setlinestyle".intern()
+//				||
+//				f.symbol.name.intern()=="setlinewidth".intern()
+//				||
+//				f.symbol.name.intern()=="setfontsize".intern()
+//				||
+//				f.symbol.name.intern()=="drawline".intern()											
+//				||
+//				f.symbol.name.intern()=="drawrect".intern()
+//				||
+//				f.symbol.name.intern()=="fillrect".intern()
+//				||
+//				f.symbol.name.intern()=="fillpoly".intern()
+//				||
+//				f.symbol.name.intern()=="drawarc".intern()
+//				||
+//				f.symbol.name.intern()=="fillarc".intern()
+//				||
+//				f.symbol.name.intern()=="drawtext".intern()											
+//				||
+//				f.symbol.name.intern()=="clearscreen".intern()
+//				||
+//				f.symbol.name.intern()=="init_postscript".intern()											
+//				||
+//				f.symbol.name.intern()=="close_postscript".intern()
+				
+				// stats.c
+//				||
+//				f.symbol.name.intern()=="routing_stats".intern()
+//				||
+//				f.symbol.name.intern()=="load_channel_occupancies".intern()
+//				||
+//				f.symbol.name.intern()=="get_num_bends_and_length".intern()
+//				||
+//				f.symbol.name.intern()=="print_wirelen_prob_dist".intern()
+//				||
+//				f.symbol.name.intern()=="print_lambda".intern()
+				
+				// segment_stats.c
+//				||
+//				f.symbol.name.intern()=="save_segment_type_and_length_info".intern()
+//				||
+//				f.symbol.name.intern()=="get_segment_usage_stats".intern()
+				
+				// rr_graph.c
+//				||
+//				f.symbol.name.intern()=="build_rr_graph".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_rr_graph".intern()
+//				||
+//				f.symbol.name.intern()=="free_rr_graph".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_net_rr_terminals".intern()											
+//				||
+//				f.symbol.name.intern()=="which_io_block".intern()	
+//				||
+//				f.symbol.name.intern()=="build_rr_clb".intern()
+//				||
+//				f.symbol.name.intern()=="build_rr_pads".intern()
+//				||
+//				f.symbol.name.intern()=="build_rr_xchan".intern()
+//				||
+//				f.symbol.name.intern()=="build_rr_ychan".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_edges_and_switches".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_clb_pin_to_tracks".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_tracks_to_clb_ipin".intern()
+//				||
+//				f.symbol.name.intern()=="track_side".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_pads_to_tracks".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_tracks_to_pads".intern()
+//				||
+//				f.symbol.name.intern()=="dump_rr_graph".intern()											
+//				||
+//				f.symbol.name.intern()=="print_rr_node".intern()
+				
+				// rr_graph2.c
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_seg_details".intern()
+//				||
+//				f.symbol.name.intern()=="free_seg_details".intern()
+//				||
+//				f.symbol.name.intern()=="dump_seg_details".intern()
+//				||
+//				f.symbol.name.intern()=="get_closest_seg_start".intern()
+//				||
+//				f.symbol.name.intern()=="get_clb_opin_connections".intern()
+//				||
+//				f.symbol.name.intern()=="get_pad_opin_connections".intern()											
+//				||
+//				f.symbol.name.intern()=="is_cbox".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_rr_node_indices".intern()
+//				||
+//				f.symbol.name.intern()=="free_rr_node_indices".intern()
+//				||
+//				f.symbol.name.intern()=="load_chanx_rr_indices".intern()
+//				||
+//				f.symbol.name.intern()=="load_chany_rr_indices".intern()
+//				||
+//				f.symbol.name.intern()=="get_rr_node_index".intern()
+//				||
+//				f.symbol.name.intern()=="get_seg_end".intern()
+//				||
+//				f.symbol.name.intern()=="get_xtrack_to_clb_ipin_edges".intern()
+//				||
+//				f.symbol.name.intern()=="get_ytrack_to_clb_ipin_edges".intern()											
+//				||
+//				f.symbol.name.intern()=="get_xtrack_to_pad_edges".intern()
+//				||
+//				f.symbol.name.intern()=="get_ytrack_to_pad_edges".intern()
+//				||
+//				f.symbol.name.intern()=="get_xtrack_to_ytracks".intern()
+//				||
+//				f.symbol.name.intern()=="get_ytrack_to_xtracks".intern()
+//				||
+//				f.symbol.name.intern()=="get_xtrack_to_xtrack".intern()											
+//				||
+//				f.symbol.name.intern()=="get_ytrack_to_ytrack".intern()
+//				||
+//				f.symbol.name.intern()=="is_sbox".intern()
+//				||
+//				f.symbol.name.intern()=="get_switch_type".intern()
+				
+				// rr_graph_sbox.c
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_switch_block_conn".intern()
+//				||
+//				f.symbol.name.intern()=="free_switch_block_conn".intern()
+//				||
+//				f.symbol.name.intern()=="get_simple_switch_block_track".intern()											
+//				||
+//				f.symbol.name.intern()=="get_switch_box_tracks".intern()
+//				||
+//				f.symbol.name.intern()=="get_sbox_side".intern()
+				
+				// rr_graph_util.c
+//				||
+//				f.symbol.name.intern()=="insert_in_edge_list".intern()
+//				||
+//				f.symbol.name.intern()=="free_edge_list_hard".intern()
+//				||
+//				f.symbol.name.intern()=="free_linked_edge_soft".intern()
+//				||
+//				f.symbol.name.intern()=="seg_index_of_cblock".intern()
+//				||
+//				f.symbol.name.intern()=="seg_index_of_sblock".intern()
+				
+				// rr_graph_timing_params.c
+//				||
+//				f.symbol.name.intern()=="add_rr_graph_C_from_switches".intern()
+				
+				// rr_graph_area.c
+//				||
+//				f.symbol.name.intern()=="count_routing_transistors".intern()											
+//				||
+//				f.symbol.name.intern()=="get_cblock_trans".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_unsharable_switch_trans".intern()
+//				||
+//				f.symbol.name.intern()=="alloc_and_load_sharable_switch_trans".intern()
+//				||
+//				f.symbol.name.intern()=="trans_per_buf".intern()
+//				||
+//				f.symbol.name.intern()=="trans_per_mux".intern()
+//				||
+//				f.symbol.name.intern()=="trans_per_R".intern()											
+				
+				// check_rr_graph.c
+//				||
+//				f.symbol.name.intern()=="check_rr_graph".intern()
+//				||
+//				f.symbol.name.intern()=="check_node".intern()											
+//				||
+//				f.symbol.name.intern()=="check_pass_transistors".intern()
+						
+				// check_route.c
+//				||
+//				f.symbol.name.intern()=="check_route".intern()
+//				||
+//				f.symbol.name.intern()=="check_sink".intern()
+//				||
+//				f.symbol.name.intern()=="check_source".intern()
+//				||
+//				f.symbol.name.intern()=="check_switch".intern()
+//				||
+//				f.symbol.name.intern()=="reset_flags".intern()
+//				||
+//				f.symbol.name.intern()=="check_adjacent".intern()
+//				||
+//				f.symbol.name.intern()=="chanx_chany_adjacent".intern()
+//				||
+//				f.symbol.name.intern()=="pin_and_chan_adjacent".intern()
+//				||
+//				f.symbol.name.intern()=="recompute_occupancy_from_scratch".intern()
+						
+				// hash.c
+//				||
+//				f.symbol.name.intern()=="alloc_hash_table".intern()
+//				||
+//				f.symbol.name.intern()=="free_hash_table".intern()
+//				||
+//				f.symbol.name.intern()=="start_hash_table_iterator".intern()
+//				||
+//				f.symbol.name.intern()=="get_next_hash".intern()
+//				||
+//				f.symbol.name.intern()=="insert_in_hash_table".intern()
+//				||
+//				f.symbol.name.intern()=="get_hash_entry".intern()											
+//				||
+//				f.symbol.name.intern()=="hash_value".intern()	
+				
+				// read_place.c
+//				||
+//				f.symbol.name.intern()=="read_user_pad_loc".intern()
+//				||
+//				f.symbol.name.intern()=="dump_clbs".intern()
+//				||
+//				f.symbol.name.intern()=="print_place".intern()
+//				||
+//				f.symbol.name.intern()=="get_subblock".intern()
+//				||
+//				f.symbol.name.intern()=="parse_placement_file".intern()
+//				||
+//				f.symbol.name.intern()=="read_place_header".intern()
+				){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	private boolean parser(Function f){
+		if(
+				// analyze-linkage.c
+				// and.c
+//				f.symbol.name.intern()=="build_digraph".intern()
+//				||
+//				f.symbol.name.intern()=="is_CON_word".intern()
+//				||
+//				f.symbol.name.intern()=="build_CON_node".intern()
+//				||
+//				f.symbol.name.intern()=="c_dfs".intern()
+//				||
+//				f.symbol.name.intern()=="build_DIS_node".intern()
+//				||
+//				f.symbol.name.intern()=="build_DIS_CON_tree".intern()
+//				||
+//				f.symbol.name.intern()=="advance_DIS".intern()
+//				||
+//				f.symbol.name.intern()=="advance_CON".intern()
+//				||
+//				f.symbol.name.intern()=="fill_patch_array_DIS".intern()
+//				||
+//				f.symbol.name.intern()=="fill_patch_array_CON".intern()
+//				||
+//				f.symbol.name.intern()=="free_digraph".intern()											
+//				||
+//				f.symbol.name.intern()=="free_DIS_tree".intern()	
+//				||
+//				f.symbol.name.intern()=="free_CON_tree".intern()
+//				||
+//				f.symbol.name.intern()=="print_a_link".intern()
+//				||
+//				f.symbol.name.intern()=="print_links".intern()
+//				||
+//				f.symbol.name.intern()=="print_links_and_domains".intern()
+//				||
+//				f.symbol.name.intern()=="and_dfs_full".intern()
+//				||
+//				f.symbol.name.intern()=="and_dfs_commas".intern()
+//				||
+//				f.symbol.name.intern()=="and_cost".intern()
+//				||
+//				f.symbol.name.intern()=="cost_for_length".intern()
+//				||
+//				f.symbol.name.intern()=="link_cost".intern()
+//				||
+//				f.symbol.name.intern()=="null_cost".intern()
+//				||
+//				f.symbol.name.intern()=="disjunct_cost".intern()											
+//				||
+//				f.symbol.name.intern()=="strictly_smaller_name".intern()
+//				||
+//				f.symbol.name.intern()=="compute_link_names".intern()
+//				||
+//				f.symbol.name.intern()=="compute_pp_link_names".intern()
+//				||
+//				f.symbol.name.intern()=="analyze_fat_linkage".intern()
+//				||
+//				f.symbol.name.intern()=="analyze_thin_linkage".intern()
+//				||
+//				f.symbol.name.intern()=="init_LT".intern()
+//				||
+//				f.symbol.name.intern()=="grow_LT".intern()											
+//				||
+//				f.symbol.name.intern()=="init_HT".intern()
+//				||
+//				f.symbol.name.intern()=="free_HT".intern()
+//				||
+//				f.symbol.name.intern()=="free_LT".intern()
+//				||
+//				f.symbol.name.intern()=="free_AND_tables".intern()
+//				||
+//				f.symbol.name.intern()=="and_connector_hash".intern()
+//				||
+//				f.symbol.name.intern()=="and_hash_disjunct".intern()
+//				||
+//				f.symbol.name.intern()=="andable_hash".intern()
+//				||
+//				f.symbol.name.intern()=="fill_andable_hash_table".intern()
+//				||
+//				f.symbol.name.intern()=="init_andable_hash_table".intern()											
+//				||
+//				f.symbol.name.intern()=="is_andable_connector".intern()
+//				||
+//				f.symbol.name.intern()=="is_appropriate".intern()
+//				||
+//				f.symbol.name.intern()=="connector_types_equal".intern()
+//				||
+//				f.symbol.name.intern()=="disjunct_types_equal".intern()
+//				||
+//				f.symbol.name.intern()=="intersect_strings".intern()
+//				||
+//				f.symbol.name.intern()=="connectors_equal_AND".intern()
+//				||
+//				f.symbol.name.intern()=="disjuncts_equal_AND".intern()
+//				||
+//				f.symbol.name.intern()=="intersect_disjuncts".intern()
+//				||
+//				f.symbol.name.intern()=="put_disjunct_into_table".intern()
+//				||
+//				f.symbol.name.intern()=="extract_all_fat_links".intern()
+//				||
+//				f.symbol.name.intern()=="stick_in_one_connector".intern()
+//				||
+//				f.symbol.name.intern()=="compute_matchers_for_a_label".intern()											
+//				||
+//				f.symbol.name.intern()=="build_conjunction_tables".intern()	
+//				||
+//				f.symbol.name.intern()=="print_AND_statistics".intern()
+//				||
+//				f.symbol.name.intern()=="connector_for_disjunct".intern()
+//				||
+//				f.symbol.name.intern()=="build_fat_link_substitutions".intern()
+//				||
+//				f.symbol.name.intern()=="explode_disjunct_list".intern()
+//				||
+//				f.symbol.name.intern()=="build_COMMA_disjunct_list".intern()
+//				||
+//				f.symbol.name.intern()=="build_AND_disjunct_list".intern()
+//				||
+//				f.symbol.name.intern()=="set_has_fat_down".intern()
+//				||
+//				f.symbol.name.intern()=="free_image_array".intern()
+//				||
+//				f.symbol.name.intern()=="build_image_array".intern()
+//				||
+//				f.symbol.name.intern()=="strictly_smaller".intern()
+//				||
+//				f.symbol.name.intern()=="find_subdisjunct".intern()											
+//				||
+//				f.symbol.name.intern()=="is_canonical_linkage".intern()
+//				||
+//				f.symbol.name.intern()=="compute_pp_link_array_connectors".intern()
+				
+				// build-disjuncts.c
+//				||
+//				f.symbol.name.intern()=="copy_Tconnectors".intern()
+//				||
+//				f.symbol.name.intern()=="free_Tconnectors".intern()
+//				||
+//				f.symbol.name.intern()=="free_clause_list".intern()
+//				||
+//				f.symbol.name.intern()=="copy_clause".intern()
+//				||
+//				f.symbol.name.intern()=="Treverse".intern()
+//				||
+//				f.symbol.name.intern()=="reverse".intern()
+//				||
+//				f.symbol.name.intern()=="catenate".intern()
+//				||
+//				f.symbol.name.intern()=="build_terminal".intern()
+//				||
+//				f.symbol.name.intern()=="maxcost_of_expression".intern()
+//				||
+//				f.symbol.name.intern()=="maxcost_of_sentence".intern()
+//				||
+				f.symbol.name.intern()=="build_clause".intern()///////////////////////////////////////
+//				||
+//				f.symbol.name.intern()=="print_connector_list".intern()
+//				||
+//				f.symbol.name.intern()=="print_Tconnector_list".intern()
+//				||
+//				f.symbol.name.intern()=="print_clause_list".intern()											
+//				||
+//				f.symbol.name.intern()=="print_disjunct_list".intern()	
+//				||
+//				f.symbol.name.intern()=="extract_connectors".intern()
+//				||
+//				f.symbol.name.intern()=="build_disjunct".intern()
+//				||
+//				f.symbol.name.intern()=="build_disjuncts_for_X_node".intern()
+//				||
+//				f.symbol.name.intern()=="build_disjuncts_for_dict_node".intern()
+//				||
+//				f.symbol.name.intern()=="build_word_expressions".intern()
+//				||
+//				f.symbol.name.intern()=="build_sentence_disjuncts".intern()
+				
+				// extract-links.c
+//				||
+//				f.symbol.name.intern()=="issue_link".intern()
+//				||
+//				f.symbol.name.intern()=="magic".intern()
+//				||
+//				f.symbol.name.intern()=="list_links".intern()
+//				||
+//				f.symbol.name.intern()=="initialize_links".intern()
+//				||
+//				f.symbol.name.intern()=="extract_links".intern()			
+				
+				// fast-match.c
+//				||
+//				f.symbol.name.intern()=="left_disjunct_list_length".intern()
+//				||
+//				f.symbol.name.intern()=="right_disjunct_list_length".intern()
+//				||
+//				f.symbol.name.intern()=="get_match_node".intern()
+//				||
+//				f.symbol.name.intern()=="put_match_list".intern()
+//				||
+//				f.symbol.name.intern()=="free_match_list".intern()
+//				||
+//				f.symbol.name.intern()=="free_fast_matcher".intern()
+//				||
+//				f.symbol.name.intern()=="fast_match_hash".intern()											
+//				||
+//				f.symbol.name.intern()=="add_to_right_table_list".intern()
+//				||
+//				f.symbol.name.intern()=="add_to_left_table_list".intern()
+//				||
+//				f.symbol.name.intern()=="put_into_match_table".intern()
+//				||
+//				f.symbol.name.intern()=="init_fast_matcher".intern()
+//				||
+//				f.symbol.name.intern()=="form_match_list".intern()
+				
+				// idiom.c
+//				||
+//				f.symbol.name.intern()=="contains_underbar".intern()
+//				||
+//				f.symbol.name.intern()=="is_idiom_string".intern()
+//				||
+//				f.symbol.name.intern()=="is_number".intern()
+//				||
+//				f.symbol.name.intern()=="numberfy".intern()											
+//				||
+//				f.symbol.name.intern()=="max_postfix_found".intern()
+//				||
+//				f.symbol.name.intern()=="build_idiom_word_name".intern()
+//				||
+//				f.symbol.name.intern()=="make_idiom_Dict_nodes".intern()
+//				||
+//				f.symbol.name.intern()=="increment_current_name".intern()
+//				||
+//				f.symbol.name.intern()=="generate_id_connector".intern()
+//				||
+//				f.symbol.name.intern()=="insert_idiom".intern()
+//				||
+//				f.symbol.name.intern()=="is_idiom_word".intern()
+				
+				// main.c
+				// massage.c
+//				||
+//				f.symbol.name.intern()=="issue_sentence_word".intern()
+//				||
+//				f.symbol.name.intern()=="separate_word".intern()
+//				||
+//				f.symbol.name.intern()=="separate_sentence".intern()
+//				||
+//				f.symbol.name.intern()=="isnumber".intern()
+//				||
+//				f.symbol.name.intern()=="ishyphenated".intern()											
+//				||
+//				f.symbol.name.intern()=="free_sentence_disjuncts".intern()	
+//				||
+//				f.symbol.name.intern()=="free_sentence_expressions".intern()
+//				||
+//				f.symbol.name.intern()=="special_string".intern()
+//				||
+//				f.symbol.name.intern()=="handle_unknown_word".intern()
+//				||
+//				f.symbol.name.intern()=="build_sentence_expressions".intern()
+//				||
+//				f.symbol.name.intern()=="print_statistics".intern()
+//				||
+//				f.symbol.name.intern()=="clean_up_string".intern()
+//				||
+//				f.symbol.name.intern()=="is_numerical_rhs".intern()
+//				||
+//				f.symbol.name.intern()=="massage_variables".intern()
+//				||
+//				f.symbol.name.intern()=="special_command".intern()
+//				||
+//				f.symbol.name.intern()=="sentence_in_dictionary".intern()
+//				||
+//				f.symbol.name.intern()=="sentence_contains".intern()											
+//				||
+//				f.symbol.name.intern()=="set_is_conjunction".intern()
+//				||
+//				f.symbol.name.intern()=="sentence_contains_conjunction".intern()
+//				||
+//				f.symbol.name.intern()=="conj_in_range".intern()
+//				||
+//				f.symbol.name.intern()=="build_deletable".intern()
+//				||
+//				f.symbol.name.intern()=="free_deletable".intern()
+//				||
+//				f.symbol.name.intern()=="install_fat_connectors".intern()
+//				||
+//				f.symbol.name.intern()=="compare_parse".intern()
+//				||
+//				f.symbol.name.intern()=="clear_time".intern()
+//				||
+//				f.symbol.name.intern()=="print_time".intern()
+//				||
+//				f.symbol.name.intern()=="print_total_time".intern()
+//				||
+//				f.symbol.name.intern()=="first_prepare_to_parse".intern()
+//				||
+//				f.symbol.name.intern()=="prepare_to_parse".intern()
+//				||
+//				f.symbol.name.intern()=="unprepare_parse".intern()
+//				||
+//				f.symbol.name.intern()=="final_unprepare_parse".intern()
+//				||
+//				f.symbol.name.intern()=="compute_linkage_arrays".intern()
+//				||
+//				f.symbol.name.intern()=="summary_line".intern()											
+//				||
+//				f.symbol.name.intern()=="stage_name".intern()	
+//				||
+//				f.symbol.name.intern()=="loop".intern()
+//				||
+//				f.symbol.name.intern()=="batch_process".intern()
+//				||
+//				f.symbol.name.intern()=="main".intern()
+//				||
+//				f.symbol.name.intern()=="glom_comma_connector".intern()
+//				||
+//				f.symbol.name.intern()=="glom_aux_connector".intern()
+//				||
+//				f.symbol.name.intern()=="add_one_connector".intern()
+//				||
+//				f.symbol.name.intern()=="special_disjunct".intern()
+//				||
+//				f.symbol.name.intern()=="construct_comma".intern()
+//				||
+//				f.symbol.name.intern()=="construct_either".intern()
+//				||
+//				f.symbol.name.intern()=="construct_neither".intern()
+//				||
+//				f.symbol.name.intern()=="construct_notonlybut".intern()											
+//				||
+//				f.symbol.name.intern()=="construct_both".intern()
+				
+				// parse.c
+				// post-process.c
+				// print.c
+				// prune.c
+//				||
+//				f.symbol.name.intern()=="match".intern()
+//				||
+//				f.symbol.name.intern()=="init_table".intern()
+//				||
+//				f.symbol.name.intern()=="hash".intern()
+//				||
+//				f.symbol.name.intern()=="free_table".intern()
+//				||
+//				f.symbol.name.intern()=="table_pointer".intern()
+//				||
+//				f.symbol.name.intern()=="table_lookup".intern()											
+//				||
+//				f.symbol.name.intern()=="table_store".intern()
+//				||
+//				f.symbol.name.intern()=="table_update".intern()
+//				||
+//				f.symbol.name.intern()=="pseudocount".intern()
+//				||
+//				f.symbol.name.intern()=="count".intern()
+//				||
+//				f.symbol.name.intern()=="parse".intern()
+//				||
+//				f.symbol.name.intern()=="region_valid".intern()
+//				||
+//				f.symbol.name.intern()=="mark_region".intern()
+//				||
+//				f.symbol.name.intern()=="conjunction_prune".intern()
+//				||
+//				f.symbol.name.intern()=="ppmatch".intern()											
+//				||
+//				f.symbol.name.intern()=="find_domain_name".intern()
+//				||
+//				f.symbol.name.intern()=="print_domain".intern()
+//				||
+//				f.symbol.name.intern()=="print_domains".intern()
+//				||
+//				f.symbol.name.intern()=="post_process_match".intern()
+//				||
+//				f.symbol.name.intern()=="match_in_list".intern()
+//				||
+//				f.symbol.name.intern()=="string_in_list".intern()
+//				||
+//				f.symbol.name.intern()=="build_graph".intern()
+//				||
+//				f.symbol.name.intern()=="add_link_to_domain".intern()
+//				||
+//				f.symbol.name.intern()=="depth_first_search".intern()
+//				||
+//				f.symbol.name.intern()=="bad_depth_first_search".intern()
+//				||
+//				f.symbol.name.intern()=="d_depth_first_search".intern()
+//				||
+//				f.symbol.name.intern()=="domain_compare".intern()											
+//				||
+//				f.symbol.name.intern()=="build_domains".intern()	
+//				||
+//				f.symbol.name.intern()=="contained_in".intern()
+//				||
+//				f.symbol.name.intern()=="link_in_domain".intern()
+//				||
+//				f.symbol.name.intern()=="check_domain_nesting".intern()
+//				||
+//				f.symbol.name.intern()=="build_domain_forest".intern()
+//				||
+//				f.symbol.name.intern()=="free_list_o_links".intern()
+//				||
+//				f.symbol.name.intern()=="free_D_tree_leaves".intern()
+//				||
+//				f.symbol.name.intern()=="free_post_processing_structures".intern()
+//				||
+//				f.symbol.name.intern()=="print_domain_tree".intern()
+//				||
+//				f.symbol.name.intern()=="CCG_rule".intern()
+//				||
+//				f.symbol.name.intern()=="domain_bounded".intern()
+//				||
+//				f.symbol.name.intern()=="link_inhabits".intern()											
+//				||
+//				f.symbol.name.intern()=="group_type_contains".intern()
+//				||
+//				f.symbol.name.intern()=="group_type_contains_all".intern()
+//				||
+//				f.symbol.name.intern()=="group_type_contains_one".intern()
+//				||
+//				f.symbol.name.intern()=="contains_none".intern()
+//				||
+//				f.symbol.name.intern()=="ordering_constraint".intern()
+//				||
+//				f.symbol.name.intern()=="contains_one".intern()
+//				||
+//				f.symbol.name.intern()=="connectivity_dfs".intern()
+//				||
+//				f.symbol.name.intern()=="mark_reachable_words".intern()
+//				||
+//				f.symbol.name.intern()=="is_connected_without".intern()
+//				||
+//				f.symbol.name.intern()=="is_connected".intern()
+//				||
+//				f.symbol.name.intern()=="free_PP_node".intern()
+//				||
+//				f.symbol.name.intern()=="build_type_array".intern()
+//				||
+//				f.symbol.name.intern()=="bogus_pp_node".intern()
+//				||
+//				f.symbol.name.intern()=="issue_violation".intern()
+//				||
+//				f.symbol.name.intern()=="post_process".intern()			
+//				||
+//				f.symbol.name.intern()=="set_centers".intern()	
+//				||
+//				f.symbol.name.intern()=="print_postscript_data".intern()
+//				||
+//				f.symbol.name.intern()=="compute_chosen_words".intern()
+//				||
+//				f.symbol.name.intern()=="print_links_graphically".intern()
+//				||
+//				f.symbol.name.intern()=="print_disjunct_counts".intern()
+//				||
+//				f.symbol.name.intern()=="print_expression_sizes".intern()
+//				||
+//				f.symbol.name.intern()=="print_sentence".intern()
+//				||
+//				f.symbol.name.intern()=="prune_match".intern()
+//				||
+//				f.symbol.name.intern()=="free_S".intern()
+//				||
+//				f.symbol.name.intern()=="hash_S".intern()
+//				||
+//				f.symbol.name.intern()=="insert_S".intern()
+//				||
+//				f.symbol.name.intern()=="zero_S".intern()											
+//				||
+//				f.symbol.name.intern()=="init_S".intern()
+//				||
+//				f.symbol.name.intern()=="matches_S".intern()
+//				||
+//				f.symbol.name.intern()=="clean_up".intern()
+//				||
+//				f.symbol.name.intern()=="count_disjuncts".intern()
+//				||
+//				f.symbol.name.intern()=="count_disjuncts_in_sentence".intern()
+//				||
+//				f.symbol.name.intern()=="prune".intern()
+//				||
+//				f.symbol.name.intern()=="string_hash".intern()											
+//				||
+//				f.symbol.name.intern()=="old_hash_disjunct".intern()
+//				||
+//				f.symbol.name.intern()=="connectors_equal_prune".intern()
+//				||
+//				f.symbol.name.intern()=="disjuncts_equal".intern()
+//				||
+//				f.symbol.name.intern()=="eliminate_duplicate_disjuncts".intern()
+//				||
+//				f.symbol.name.intern()=="size_of_sentence_expressions".intern()
+//				||
+//				f.symbol.name.intern()=="purge_Exp".intern()
+//				||
+//				f.symbol.name.intern()=="and_purge_E_list".intern()
+//				||
+//				f.symbol.name.intern()=="or_purge_E_list".intern()
+//				||
+//				f.symbol.name.intern()=="mark_dead_connectors".intern()											
+//				||
+//				f.symbol.name.intern()=="insert_connectors".intern()
+//				||
+//				f.symbol.name.intern()=="clean_up_expressions".intern()
+//				||
+//				f.symbol.name.intern()=="expression_prune".intern()
+//				||
+//				f.symbol.name.intern()=="left_connector_count".intern()
+//				||
+//				f.symbol.name.intern()=="right_connector_count".intern()
+//				||
+//				f.symbol.name.intern()=="free_C_list".intern()
+//				||
+//				f.symbol.name.intern()=="free_power_tables".intern()
+//				||
+//				f.symbol.name.intern()=="power_hash".intern()
+//				||
+//				f.symbol.name.intern()=="put_into_power_table".intern()
+//				||
+//				f.symbol.name.intern()=="set_dist_fields".intern()
+//				||
+//				f.symbol.name.intern()=="init_power".intern()
+//				||
+//				f.symbol.name.intern()=="clean_table".intern()											
+//				||
+//				f.symbol.name.intern()=="possible_connection".intern()	
+//				||
+//				f.symbol.name.intern()=="right_table_search".intern()
+//				||
+//				f.symbol.name.intern()=="left_table_search".intern()
+//				||
+//				f.symbol.name.intern()=="ok_cwords".intern()
+//				||
+//				f.symbol.name.intern()=="left_connector_list_update".intern()
+//				||
+//				f.symbol.name.intern()=="right_connector_list_update".intern()
+//				||
+//				f.symbol.name.intern()=="power_prune".intern()
+				
+				// read-dict.c
+//				||
+//				f.symbol.name.intern()=="error".intern()
+//				||
+//				f.symbol.name.intern()=="warning".intern()
+//				||
+//				f.symbol.name.intern()=="get_character".intern()
+//				||
+//				f.symbol.name.intern()=="advance".intern()
+//				||
+//				f.symbol.name.intern()=="is_equal".intern()											
+//				||
+//				f.symbol.name.intern()=="copy_string".intern()
+//				||
+//				f.symbol.name.intern()=="check_connector".intern()
+//				||
+//				f.symbol.name.intern()=="connector".intern()
+//				||
+//				f.symbol.name.intern()=="make_unary_node".intern()
+//				||
+//				f.symbol.name.intern()=="make_zeroary_node".intern()
+//				||
+//				f.symbol.name.intern()=="make_optional_node".intern()
+//				||
+//				f.symbol.name.intern()=="expression".intern()
+//				||
+//				f.symbol.name.intern()=="restricted_expression".intern()
+//				||
+//				f.symbol.name.intern()=="dict_compare".intern()
+//				||
+//				f.symbol.name.intern()=="insert_dict".intern()
+//				||
+//				f.symbol.name.intern()=="insert_list".intern()
+//				||
+//				f.symbol.name.intern()=="read_entry".intern()
+//				||
+//				f.symbol.name.intern()=="print_expression".intern()
+//				||
+//				f.symbol.name.intern()=="rprint_dictionary_data".intern()
+//				||
+//				f.symbol.name.intern()=="print_dictionary_data".intern()											
+//				||
+//				f.symbol.name.intern()=="read_dictionary".intern()	
+//				||
+//				f.symbol.name.intern()=="dict_match".intern()
+//				||
+//				f.symbol.name.intern()=="true_dict_match".intern()
+//				||
+//				f.symbol.name.intern()=="prune_lookup_list".intern()
+//				||
+//				f.symbol.name.intern()=="free_lookup_list".intern()
+//				||
+//				f.symbol.name.intern()=="rdictionary_lookup".intern()
+//				||
+//				f.symbol.name.intern()=="dictionary_lookup".intern()
+//				||
+//				f.symbol.name.intern()=="boolean_dictionary_lookup".intern()
+//				||
+//				f.symbol.name.intern()=="rabridged_lookup".intern()
+//				||
+//				f.symbol.name.intern()=="abridged_lookup".intern()
+//				||
+//				f.symbol.name.intern()=="boolean_abridged_lookup".intern()
+//				||
+//				f.symbol.name.intern()=="find_one_non_idiom_node".intern()											
+//				||
+//				f.symbol.name.intern()=="set_parent_of_node".intern()
+//				||
+//				f.symbol.name.intern()=="delete_dictionary_words".intern()
+//				||
+//				f.symbol.name.intern()=="open_dictionary".intern()
+				
+				// utilities.c
+//				||
+//				f.symbol.name.intern()=="free_connectors".intern()
+//				||
+//				f.symbol.name.intern()=="free_disjuncts".intern()
+//				||
+//				f.symbol.name.intern()=="free_X_nodes".intern()
+//				||
+//				f.symbol.name.intern()=="free_Exp".intern()											
+//				||
+//				f.symbol.name.intern()=="free_E_list".intern()
+//				||
+//				f.symbol.name.intern()=="size_of_expression".intern()
+//				||
+//				f.symbol.name.intern()=="init_randtable".intern()
+//				||
+//				f.symbol.name.intern()=="copy_Exp".intern()
+//				||
+//				f.symbol.name.intern()=="copy_E_list".intern()
+//				||
+//				f.symbol.name.intern()=="copy_connectors".intern()
+//				||
+//				f.symbol.name.intern()=="copy_disjunct".intern()
+//				||
+//				f.symbol.name.intern()=="free_this_string_later".intern()
+//				||
+//				f.symbol.name.intern()=="free_strings".intern()											
+//				||
+//				f.symbol.name.intern()=="catenate_disjuncts".intern()
+//				||
+//				f.symbol.name.intern()=="catenate_X_nodes".intern()
+//				||
+//				f.symbol.name.intern()=="next_power_of_two_up".intern()
+//				||
+//				f.symbol.name.intern()=="upper_case_match".intern()
+//				||
+//				f.symbol.name.intern()=="left_print_string".intern()
+				
+				// xalloc.c
+//				||
+//				f.symbol.name.intern()=="xalloc".intern()
+//				||
+//				f.symbol.name.intern()=="xfree".intern()
+				
+				// word-file.c
+//				||
+//				f.symbol.name.intern()=="get_a_word".intern()
+//				||
+//				f.symbol.name.intern()=="read_word_file".intern()
+//				||
+//				f.symbol.name.intern()=="routput_dictionary".intern()
+//				||
+//				f.symbol.name.intern()=="output_dictionary".intern()
+//				||
+//				f.symbol.name.intern()=="save_files".intern()											
+//				||
+//				f.symbol.name.intern()=="files_need_saving".intern()	
+				
+				// strncasecmp.c
+//				||
+//				f.symbol.name.intern()=="strncasecmp".intern()
+				){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	private boolean vortex(Function f){
+		if(
+				f.symbol.name.intern()=="train_match".intern()
+				){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	private boolean twolf(Function f){
+		if(
+				// acceptt.c
+				// addimp.c
+				// alignfeed.c
+//				f.symbol.name.intern()=="acceptt".intern()
+//				||
+//				f.symbol.name.intern()=="addimp".intern()
+//				||
+//				f.symbol.name.intern()=="alignfeed".intern()
+//				||
+//				f.symbol.name.intern()=="re_place".intern()
+//				||
+//				f.symbol.name.intern()=="align_init".intern()
+//				||
+//				f.symbol.name.intern()=="free_clause_list".intern()
+//				||
+//				f.symbol.name.intern()=="copy_clause".intern()
+//				||
+//				f.symbol.name.intern()=="Treverse".intern()
+//				||
+//				f.symbol.name.intern()=="reverse".intern()
+//				||
+//				f.symbol.name.intern()=="catenate".intern()
+//				||
+//				f.symbol.name.intern()=="build_terminal".intern()
+//				||
+//				f.symbol.name.intern()=="maxcost_of_expression".intern()
+//				||
+//				f.symbol.name.intern()=="maxcost_of_sentence".intern()
+//				||
+//				f.symbol.name.intern()=="build_clause".intern()
+//				||
+//				f.symbol.name.intern()=="print_connector_list".intern()
+//				||
+//				f.symbol.name.intern()=="print_Tconnector_list".intern()
+//				||
+//				f.symbol.name.intern()=="print_clause_list".intern()											
+//				||
+//				f.symbol.name.intern()=="print_disjunct_list".intern()	
+//				||
+//				f.symbol.name.intern()=="extract_connectors".intern()
+//				||
+//				f.symbol.name.intern()=="build_disjunct".intern()
+//				||
+//				f.symbol.name.intern()=="build_disjuncts_for_X_node".intern()
+//				||
+//				f.symbol.name.intern()=="build_disjuncts_for_dict_node".intern()
+//				||
+//				f.symbol.name.intern()=="build_word_expressions".intern()
+//				||
+//				f.symbol.name.intern()=="build_sentence_disjuncts".intern()
+				
+				// buildimp.c
+//				||
+//				f.symbol.name.intern()=="buildimp".intern()
+//				||
+//				f.symbol.name.intern()=="build_feed_imp".intern()
+				
+				// changrid.c
+				// clean.c
+				// closepins.c
+				// config1.c
+				// configure.c
+				// configuref.c
+				// controlf.c
+				// countf.c
+//				||
+//				f.symbol.name.intern()=="changrid".intern()
+//				||
+//				f.symbol.name.intern()=="new_old".intern()
+//				||
+//				f.symbol.name.intern()=="old_assgnto_new1".intern()
+//				||
+//				f.symbol.name.intern()=="new_assgnto_old1".intern()
+//				||
+//				f.symbol.name.intern()=="old_assgnto_new2".intern()
+//				||
+//				f.symbol.name.intern()=="new_assgnto_old2".intern()
+//				||
+//				f.symbol.name.intern()=="sub_penal".intern()
+//				||
+//				f.symbol.name.intern()=="add_penal".intern()
+//				||
+//				f.symbol.name.intern()=="closepins".intern()
+//				||
+//				f.symbol.name.intern()=="config1".intern()
+//				||
+//				f.symbol.name.intern()=="configure".intern()
+//				||
+//				f.symbol.name.intern()=="RtoB".intern()
+//				||
+//				f.symbol.name.intern()=="configuref".intern()
+//				||
+//				f.symbol.name.intern()=="controlf".intern()
+//				||
+//				f.symbol.name.intern()=="countf".intern()
+//				||
+//				f.symbol.name.intern()=="prep_feed_count_1".intern()
+//				||
+//				f.symbol.name.intern()=="prep_feed_count".intern()
+//				||
+//				f.symbol.name.intern()=="insert_row".intern()
+//				||
+//				f.symbol.name.intern()=="new_assgnto_old2".intern()
+//				||
+//				f.symbol.name.intern()=="feed_situation".intern()
+				
+				// debug.c
+				// dimbox.c
+				// date.c
+//				||
+//				f.symbol.name.intern()=="cellbox_data".intern()
+//				||
+//				f.symbol.name.intern()=="cellterm_data".intern()
+//				||
+//				f.symbol.name.intern()=="terminal".intern()
+//				||
+//				f.symbol.name.intern()=="pairCheck".intern()
+//				||
+//				f.symbol.name.intern()=="trackdebug".intern()
+//				||
+//				f.symbol.name.intern()=="fcellheight".intern()
+//				||
+//				f.symbol.name.intern()=="chan_debug".intern()
+//				||
+//				f.symbol.name.intern()=="negative".intern()
+//				||
+//				f.symbol.name.intern()=="check_cost".intern()
+//				||
+//				f.symbol.name.intern()=="initialize_cost".intern()
+//				||
+//				f.symbol.name.intern()=="new_dbox".intern()
+//				||
+//				f.symbol.name.intern()=="new_dbox_a".intern()
+//				||
+//				f.symbol.name.intern()=="term_newpos".intern()
+//				||
+//				f.symbol.name.intern()=="term_newpos_a".intern()
+//				||
+//				f.symbol.name.intern()=="term_newpos_b".intern()
+//				||
+//				f.symbol.name.intern()=="dbox_pos".intern()
+//				||
+//				f.symbol.name.intern()=="dbox_pos_2".intern()
+//				||
+//				f.symbol.name.intern()=="initialize_rows".intern()
+//				||
+//				f.symbol.name.intern()=="check_row_values".intern()
+//				||
+//				f.symbol.name.intern()=="vert_statistics".intern()
+//				||
+//				f.symbol.name.intern()=="getCompileDate".intern()
+				
+				// finalwire.c
+				// findcost.c
+				// findcostf.c
+				// findest.c
+				// findfeeds.c
+				// findrchk.c
+				// findrcost.c
+				// findunlap.c
+//				||
+//				f.symbol.name.intern()=="finalwire".intern()
+//				||
+//				f.symbol.name.intern()=="findcost".intern()
+//				||
+//				f.symbol.name.intern()=="findcostf".intern()
+//				||
+//				f.symbol.name.intern()=="installf".intern()
+//				||
+//				f.symbol.name.intern()=="assignro".intern()
+//				||
+//				f.symbol.name.intern()=="reassign".intern()
+//				||
+//				f.symbol.name.intern()=="findfeeds".intern()
+//				||
+//				f.symbol.name.intern()=="del_pin".intern()
+//				||
+//				f.symbol.name.intern()=="fixwolf".intern()
+//				||
+//				f.symbol.name.intern()=="addfeed".intern()
+//				||
+//				f.symbol.name.intern()=="rowToBlk".intern()
+//				||
+//				f.symbol.name.intern()=="prepglob".intern()
+//				||
+//				f.symbol.name.intern()=="detfeed".intern()
+//				||
+//				f.symbol.name.intern()=="findrchk".intern()
+//				||
+//				f.symbol.name.intern()=="debug".intern()
+//				||
+//				f.symbol.name.intern()=="reset_ntrack".intern()
+//				||
+//				f.symbol.name.intern()=="findrcost".intern()
+//				||
+//				f.symbol.name.intern()=="set_cedgebin".intern()
+//				||
+//				f.symbol.name.intern()=="reset_track".intern()
+//				||
+//				f.symbol.name.intern()=="facing_cellheight".intern()
+//				||
+//				f.symbol.name.intern()=="findunlap".intern()
+				
+				// globe.c
+				// globedbg.c
+				// gparser.c
+				// grdcell.c
+				// globroute.c
+//				||
+//				f.symbol.name.intern()=="globe".intern()
+//				||
+//				f.symbol.name.intern()=="chkGroup".intern()
+//				||
+//				f.symbol.name.intern()=="detGroup".intern()
+//				||
+//				f.symbol.name.intern()=="addEdge".intern()
+//				||
+//				f.symbol.name.intern()=="searchG".intern()
+//				||
+//				f.symbol.name.intern()=="globedbg".intern()
+//				||
+//				f.symbol.name.intern()=="checkPos".intern()
+//				||
+//				f.symbol.name.intern()=="dumpEdgeArray".intern()
+//				||
+//				f.symbol.name.intern()=="gparser".intern()
+//				||
+//				f.symbol.name.intern()=="grdcell".intern()
+//				||
+//				f.symbol.name.intern()=="add_type".intern()
+//				||
+//				f.symbol.name.intern()=="add_pin".intern()
+//				||
+//				f.symbol.name.intern()=="find_imp_x".intern()
+//				||
+//				f.symbol.name.intern()=="globroute".intern()
+				
+				// hash.c
+//				||
+//				f.symbol.name.intern()=="maketabl".intern()
+//				||
+//				f.symbol.name.intern()=="delHtab".intern()
+//				||
+//				f.symbol.name.intern()=="addhash".intern()
+//				||
+//				f.symbol.name.intern()=="hashfind".intern()
+				
+				// implfeeds.c
+//				||
+//				f.symbol.name.intern()=="implfeeds".intern()
+//				||
+//				f.symbol.name.intern()=="impfix".intern()
+//				||
+//				f.symbol.name.intern()=="impclobr".intern()
+				
+				// mergplist.c
+				// move.c
+				// mt.c
+//				||
+//				f.symbol.name.intern()=="mergplist".intern()											
+//				||
+//				f.symbol.name.intern()=="initialize_pins".intern()
+//				||
+//				f.symbol.name.intern()=="add_pins".intern()
+//				||
+//				f.symbol.name.intern()=="assign_group_values".intern()
+//				||
+//				f.symbol.name.intern()=="merge_pins".intern()
+//				||
+//				f.symbol.name.intern()=="merge".intern()
+//				||
+//				f.symbol.name.intern()=="point".intern()
+//				||
+//				f.symbol.name.intern()=="rect".intern()
+//				||
+//				f.symbol.name.intern()=="move".intern()
+//				||
+//				f.symbol.name.intern()=="MTBegin".intern()
+//				||
+//				f.symbol.name.intern()=="MTEnd".intern()
+//				||
+//				f.symbol.name.intern()=="MTIdenti".intern()
+//				||
+//				f.symbol.name.intern()=="MTTransl".intern()
+//				||
+//				f.symbol.name.intern()=="MTMY".intern()											
+//				||
+//				f.symbol.name.intern()=="MTMX".intern()	
+//				||
+//				f.symbol.name.intern()=="MTRotate".intern()
+//				||
+//				f.symbol.name.intern()=="MTConcat".intern()
+//				||
+//				f.symbol.name.intern()=="MTPoint".intern()
+//				||
+//				f.symbol.name.intern()=="MTIPoint".intern()
+//				||
+//				f.symbol.name.intern()=="MTPushP".intern()
+//				||
+//				f.symbol.name.intern()=="MTPopP".intern()
+//				||
+//				f.symbol.name.intern()=="MTPremul".intern()
+//				||
+//				f.symbol.name.intern()=="MTDecode".intern()
+//				||
+//				f.symbol.name.intern()=="MTInvert".intern()
+				
+				// okmalloc.c
+				// outcm.c
+				// outpins.c
+				// output.c
+//				||
+//				f.symbol.name.intern()=="safe_malloc".intern()
+//				||
+//				f.symbol.name.intern()=="safe_realloc".intern()											
+//				||
+//				f.symbol.name.intern()=="safe_calloc".intern()
+//				||
+//				f.symbol.name.intern()=="safe_free".intern()
+//				||
+//				f.symbol.name.intern()=="safe_cfree".intern()
+//				||
+//				f.symbol.name.intern()=="cleanup".intern()
+//				||
+//				f.symbol.name.intern()=="cleanupHandler".intern()
+//				||
+//				f.symbol.name.intern()=="outcm".intern()
+//				||
+//				f.symbol.name.intern()=="outpins".intern()
+//				||
+//				f.symbol.name.intern()=="min_r_chan_edge".intern()
+//				||
+//				f.symbol.name.intern()=="min_l_chan_edge".intern()
+//				||
+//				f.symbol.name.intern()=="output".intern()
+				
+				// parser.c
+				// purcost.c
+//				||
+//				f.symbol.name.intern()=="parser".intern()
+//				||
+//				f.symbol.name.intern()=="purcost".intern()
+				
+				// qsorte.c
+				// qsortg.c
+				// qsortgdx.c
+				// qsortx.c
+//				||
+//				f.symbol.name.intern()=="qsorte".intern()
+//				||
+//				f.symbol.name.intern()=="qste".intern()
+//				||
+//				f.symbol.name.intern()=="comparee".intern()
+//				||
+//				f.symbol.name.intern()=="qsortg".intern()											
+//				||
+//				f.symbol.name.intern()=="compareg".intern()	
+//				||
+//				f.symbol.name.intern()=="qsortgdx".intern()
+//				||
+//				f.symbol.name.intern()=="qstgdx".intern()
+//				||
+//				f.symbol.name.intern()=="comparegdx".intern()
+//				||
+//				f.symbol.name.intern()=="qsortx".intern()
+//				||
+//				f.symbol.name.intern()=="qst".intern()
+				
+				// rand.c
+				// readblck.c
+				// readcell.c
+				// readnets.c
+				// readpar.c
+				// readseg.c
+//				||
+//				f.symbol.name.intern()=="Yacm_random".intern()
+//				||
+//				f.symbol.name.intern()=="Yset_random_seed".intern()
+//				||
+//				f.symbol.name.intern()=="readblck".intern()
+//				||
+//				f.symbol.name.intern()=="readcell".intern()
+//				||
+//				f.symbol.name.intern()=="readnets".intern()
+//				||
+//				f.symbol.name.intern()=="readParFile".intern()
+//				||
+//				f.symbol.name.intern()=="readseg".intern()
+				
+				// savewolf.c
+				// sortpin.c
+				// stats.c
+//				||
+//				f.symbol.name.intern()=="savewolf".intern()
+//				||
+//				f.symbol.name.intern()=="TW_oldin".intern()
+//				||
+//				f.symbol.name.intern()=="fixfdpos".intern()
+//				||
+//				f.symbol.name.intern()=="sortpin".intern()
+//				||
+//				f.symbol.name.intern()=="shellsort".intern()
+//				||
+//				f.symbol.name.intern()=="print_stats".intern()											
+//				||
+//				f.symbol.name.intern()=="cpu_time".intern()
+				
+				
+				// uc0.c
+				// ucg0.c
+				// ucgxp.c
+				// uclosepns
+				// ucxx1.c
+				// ucxx2.c
+				// ucxxo1.c
+				// ucxxo2.c
+				// ucxxp.c
+				// uglobe.c
+				// uglobrout.c
+				// ugpair.c
+				// uloop.c
+				// uloop2.c
+				// unetseg.c
+				// unlap.c
+				// upair.c
+				// urcost.c
+				// utemp.c
+				// utils.c
+//				||
+//				(getChar(0,func)=='u' || func.equals("all")) && (
+//				f.symbol.name.intern()=="uc0".intern()
+//				||
+//				f.symbol.name.intern()=="ucg0".intern()
+//				||
+//				f.symbol.name.intern()=="sub_reset1".intern()
+//				||
+//				f.symbol.name.intern()=="ucgxp".intern()
+//				||
+//				f.symbol.name.intern()=="sub_reset2".intern()
+//				||
+//				f.symbol.name.intern()=="uclosepns".intern()
+//				||
+//				f.symbol.name.intern()=="ucxx1".intern()
+//				||
+//				f.symbol.name.intern()=="ucxx2".intern()
+//				||
+//				f.symbol.name.intern()=="find_new_pos".intern()
+//				||
+//				f.symbol.name.intern()=="add_cell".intern()
+//				||
+//				f.symbol.name.intern()=="ucxxo1".intern()
+//				||
+//				f.symbol.name.intern()=="ucxxo2".intern()
+//				||
+//				f.symbol.name.intern()=="ucxxp".intern()
+//				||
+//				f.symbol.name.intern()=="uglobe".intern()
+//				||
+//				f.symbol.name.intern()=="uglobrout".intern()
+//				||
+//				f.symbol.name.intern()=="ugpair".intern()
+//				||
+//				f.symbol.name.intern()=="uloop".intern()
+//				||
+//				f.symbol.name.intern()=="rowcon".intern()
+//				||
+//				f.symbol.name.intern()=="partition".intern()
+//				||
+//				f.symbol.name.intern()=="expected_value".intern()											
+//				||
+//				f.symbol.name.intern()=="expected_svalue".intern()	
+//				||
+//				f.symbol.name.intern()=="compute_and_combination".intern()
+//				||
+//				f.symbol.name.intern()=="combination".intern()
+//				||
+//				f.symbol.name.intern()=="uloop2".intern()
+//				||
+//				f.symbol.name.intern()=="unetseg".intern()
+//				||
+//				f.symbol.name.intern()=="unlap".intern()
+//				||
+//				f.symbol.name.intern()=="upair".intern()
+//				||
+				f.symbol.name.intern()=="urcost".intern()
+//				||
+//				f.symbol.name.intern()=="utemp".intern()
+//				||
+//				f.symbol.name.intern()=="add_dummy_feeds".intern()
+//				||
+//				f.symbol.name.intern()=="initProgram".intern()
+//				||
+//				f.symbol.name.intern()=="getProgName".intern()											
+//				||
+//				f.symbol.name.intern()=="strclone".intern()
+//				||
+//				f.symbol.name.intern()=="openFile".intern()
+//				)
+				
+				// xcompact.c
+				// xpickint.c
+				
+//				||
+//				(getChar(0,func)=='x' || func.equals("all")) && (
+//				func=="xcompact".intern()
+//				||
+//				func=="findblks".intern()
+//				||
+//				func=="XPICK_INT".intern()
+//				)
+				){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	public void funcName(Function f){
+		System.out.println(f.symbol.name.intern());
+	}
+	
+	
+	char firstChar(){
+		return 
+				'a'
+//				'b'
+//				'c'
+//				'd'
+//				'e'
+//				'f'
+//				'g'
+//				'h'
+//				'i'
+//				'j'
+//				'k'
+//				'l'
+//				'm'
+//				'n'
+//				'o'
+//				'p' 
+//				'q'
+//				'r'
+//				's'
+//				't'
+//				'u'
+//				'v'
+//				'w'
+//				'x' 
+//				'y'
+//				'z'
+				;
+	}
+	
+	
+	char getChar(int pos, String funcName){
+		if(pos>=funcName.length())return funcName.charAt(0);
+		else return funcName.charAt(pos);
+	}
+	
+	
+	public boolean target(Function f, String program){
+		if(program=="equake"){
+			return equake(f);
+		}
+		else if(program=="art"){
+			return art(f);
+		}
+		else if(program=="mcf"){
+			return mcf(f);
+		}
+		else if(program=="crafty"){
+			return crafty(f);
+		}
+		else if(program=="bzip2"){
+			return bzip2(f);
+		}
+		else if(program=="gzip"){
+			return gzip(f);
+		}
+		else if(program=="mesa"){
+			return mesa(f);
+		}
+		else if(program=="gap"){
+			return gap(f);
+		}
+		else if(program=="ammp"){
+			return ammp(f);
+		}
+		else if(program=="vpr"){
+			return vpr(f);
+		}
+		else if(program=="parser"){
+			return parser(f);
+		}
+		else if(program=="vortex"){
+			return vortex(f);
+		}
+		else if(program=="twolf"){
+			return twolf(f);
+		}
+		return false;
+	}
+	
+	/**
+	 * Do Print all of BasicBlk and nodes.
+	 * 
+	 * @param func
+	 *            The current function
+	 * @param args
+	 *            The list of options
+	 **/
+	public boolean doIt(Function func, ImList args) {
+		f = func;
+		f.flowGraph().touch();
+		return (true);
+	}
+
+	/**
+	 * @param data
+	 *            Data to be processes.
+	 * @param args
+	 *            List of optional arguments.
+	 **/
+	public boolean doIt(Data data, ImList args) {
+		return true;
+	}
+
+	/**
+	 * Return the name of this optimizer.
+	 **/
+	public String name() {
+		return "Target";
+	}
+
+	/**
+	 * Return brief descriptions of this optimizer.
+	 **/
+	public String subject() {
+		return "Print";
+	}
+
+}
+
