@@ -161,7 +161,6 @@ public class EQP implements LocalTransformer {
 	
 	public void setVarsToGCM(BasicBlk blk, int val){
 		result = new HashSet[idBound];
-//		avail = new HashSet[idBound];
 		avail = new int[idBound];
 		isReal = new HashSet[idBound];
 		isSelf = new HashSet[idBound];
@@ -232,7 +231,7 @@ public class EQP implements LocalTransformer {
 					continue;
 				}
 				
-				if(node.kid(1).nKids()==0 || (kill || mode==2 || mode==3) && node.kid(1).opCode==Op.MEM){
+				if(node.kid(1).nKids()==0 || (kill || mode==2) && node.kid(1).opCode==Op.MEM || mode==3){
 					if(node.kid(0).opCode==Op.REG) valueMap.put(val, node.kid(0));
 					else valueMap.put(val, node.kid(1));
 					gvn.setValue(val, node.kid(0), ve, blk);
@@ -430,15 +429,13 @@ public class EQP implements LocalTransformer {
 					if(newPhi.opCode!=Op.PHI || (((LirLabelRef) newPhi.kid(1).kid(2)).label).basicBlk()!=blk)continue;
 					newNodes.remove(i);
 					insertNodeToBlk.remove(newPhi);
-					gvn.removeValue(val, newPhi.kid(0), blk);
+					gvn.removeValue(gvn.getValue(newPhi.kid(0)), newPhi.kid(0), blk);
 					remove = true;
 					break;
 				}
 			}
 			
-			if(!remove){
-				newPhi = (newPhi(node,blk,tmpSymName)).makeCopy(env.lir);
-			}
+			if(!remove) newPhi = (newPhi(node,blk,tmpSymName)).makeCopy(env.lir);
 			
 			addToNewNodes(newPhi);
 			newPhi = newPhi.makeCopy(env.lir);
@@ -489,23 +486,6 @@ public class EQP implements LocalTransformer {
 		avail[blk.id] = val;
 	}
 		
-//	public boolean checkAvail(int val, BasicBlk blk){
-//		if(avail[blk.id]==null)return false;
-//		HashSet list = avail[blk.id];
-//		return list.contains(val);
-//	}
-//	
-//	
-//	public void recordAvail(int val, BasicBlk blk){
-//		if(avail[blk.id]==null){
-//			HashSet list = new HashSet();
-//			avail[blk.id] = list;
-//		}
-//		HashSet list = avail[blk.id];
-//		list.add(val);
-//	}
-	
-	
 	public boolean checkIsReal(int val, BasicBlk blk){
 		if(isReal[blk.id]==null)return false;
 		HashSet list = isReal[blk.id];
